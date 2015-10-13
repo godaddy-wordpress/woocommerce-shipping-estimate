@@ -6,6 +6,8 @@ You can also display date ranges instead (which are calculated from the days you
 
 ### Notes
 
+Want just the plugin files to install? Grab the `build` folder only, rename it, and install, or [check out the releases](https://github.com/skyverge/woocommerce-shipping-estimate/releases) -- there should be an installable .zip attached.
+
 This plugin supports any individual WooCommerce shipping method and can let the user set the estimated delivery time or range in days for each. It **does not** support combined methods like Table Rate Shipping.
 
 You can set a minimum delivery estimate, maximum estimate, or both for any / all shipping methods. The delivery label will adjust accordingly.
