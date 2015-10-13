@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WooCommerce Shipping Estimates
- * Plugin URI: http://www.skyverge.com/product/woocommerce-shipping-estimates/
+ * Plugin URI: http://github.com/skyverge/woocommerce-shipping-estimate/
  * Description: Displays a shipping estimate for each method on the cart / checkout page
  * Author: SkyVerge
  * Author URI: http://www.skyverge.com/
@@ -82,10 +82,10 @@ class WC_Shipping_Estimate {
 	 * @return WC_Shipping_Estimate
  	*/
 	public static function instance() {
-    	if ( is_null( self::$instance ) ) {
-        	self::$instance = new self();
-    	}
-    	return self::$instance;
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
+		}
+		return self::$instance;
 	}
 
 
@@ -100,7 +100,6 @@ class WC_Shipping_Estimate {
 
 		$plugin_links = array(
 			'<a href="' . admin_url( 'admin.php?page=wc-settings&tab=shipping' ) . '">' . __( 'Configure', 'wc-shipping-estimate' ) . '</a>',
-			'<a href="http://github.com/skyverge/woocommerce-shipping-estimate/">' . __( 'Support', 'wc-shipping-estimate' ) . '</a>',
 		);
 
 		return array_merge( $plugin_links, $links );
