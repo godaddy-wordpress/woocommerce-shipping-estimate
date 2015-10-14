@@ -2,3 +2,9 @@
 .idea/vcs.xml
 
 .idea/workspace.xml
+
+.idea/misc.xml
+
+*.xml
+
+.idea/woocommerce-shipping-estimate.iml

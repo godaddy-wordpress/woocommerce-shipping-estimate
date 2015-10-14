@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Shipping Estimates 1.0.0\n"
+"Project-Id-Version: WooCommerce Shipping Estimates 1.0.1\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/skyverge/woocommerce-shipping-estimate/issues\n"
 "POT-Creation-Date: 2015-10-13 21:32:53+00:00\n"
@@ -13,97 +13,120 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: wc-shipping-estimate.php:102
+#: build/woocommerce-shipping-estimate.php:102
+#: woocommerce-shipping-estimate.php:102
 msgid "Configure"
 msgstr ""
 
-#: wc-shipping-estimate.php:178 wc-shipping-estimate.php:190
+#: build/woocommerce-shipping-estimate.php:178
+#: build/woocommerce-shipping-estimate.php:190
+#: woocommerce-shipping-estimate.php:178 woocommerce-shipping-estimate.php:190
 #. translators: %1$s (number) is maximum shipping estimate, %2$s is label
 #. (day(s))
 msgid "Delivery estimate: up to %1$s %2$s"
 msgstr ""
 
-#: wc-shipping-estimate.php:183
+#: build/woocommerce-shipping-estimate.php:183
+#: woocommerce-shipping-estimate.php:183
 #. translators: %1$s (number) is minimum shipping estimate, %2$s (number) is
 #. maximum shipping estimate, %$3s is label (day(s))
 msgid "Delivery estimate: %1$s - %2$s %3$s"
 msgstr ""
 
-#: wc-shipping-estimate.php:195
+#: build/woocommerce-shipping-estimate.php:195
+#: woocommerce-shipping-estimate.php:195
 #. translators: %1$s (number) is minimum shipping estimate, %2$s is label
 #. (day(s))
 msgid "Delivery estimate: at least %1$s %2$s"
 msgstr ""
 
-#: wc-shipping-estimate.php:225 wc-shipping-estimate.php:237
+#: build/woocommerce-shipping-estimate.php:225
+#: build/woocommerce-shipping-estimate.php:237
+#: woocommerce-shipping-estimate.php:225 woocommerce-shipping-estimate.php:237
 #. translators: %s (date) is latest shipping estimate
 msgid "Estimated delivery by %s"
 msgstr ""
 
-#: wc-shipping-estimate.php:230
+#: build/woocommerce-shipping-estimate.php:230
+#: woocommerce-shipping-estimate.php:230
 #. translators: %1$s (date) is earliest shipping estimate, %2$s (date) is
 #. latest shipping estimate
 msgid "Estimated delivery: %1$s - %2$s"
 msgstr ""
 
-#: wc-shipping-estimate.php:242
+#: build/woocommerce-shipping-estimate.php:242
+#: woocommerce-shipping-estimate.php:242
 #. translators: %s (date) is earliest shipping estimate
 msgid "Delivery on or after %s"
 msgstr ""
 
-#: wc-shipping-estimate.php:259
+#: build/woocommerce-shipping-estimate.php:259
+#: woocommerce-shipping-estimate.php:259
 msgid "days"
 msgstr ""
 
-#: wc-shipping-estimate.php:259
+#: build/woocommerce-shipping-estimate.php:259
+#: woocommerce-shipping-estimate.php:259
 msgid "day"
 msgstr ""
 
-#: wc-shipping-estimate.php:279
+#: build/woocommerce-shipping-estimate.php:279
+#: woocommerce-shipping-estimate.php:279
 msgid "Shipping Estimate Format"
 msgstr ""
 
-#: wc-shipping-estimate.php:281
+#: build/woocommerce-shipping-estimate.php:281
+#: woocommerce-shipping-estimate.php:281
 msgid "Display estimate in days"
 msgstr ""
 
-#: wc-shipping-estimate.php:282
+#: build/woocommerce-shipping-estimate.php:282
+#: woocommerce-shipping-estimate.php:282
 msgid "Display estimate using dates"
 msgstr ""
 
-#: wc-shipping-estimate.php:285
+#: build/woocommerce-shipping-estimate.php:285
+#: woocommerce-shipping-estimate.php:285
 msgid "This changes the way estimates are shown to customers."
 msgstr ""
 
-#: wc-shipping-estimate.php:316
+#: build/woocommerce-shipping-estimate.php:317
+#: woocommerce-shipping-estimate.php:317
 msgid "Shipping Estimate"
 msgstr ""
 
-#: wc-shipping-estimate.php:321
+#: build/woocommerce-shipping-estimate.php:322
+#: woocommerce-shipping-estimate.php:322
 msgid "Name"
 msgstr ""
 
-#: wc-shipping-estimate.php:322
+#: build/woocommerce-shipping-estimate.php:323
+#: woocommerce-shipping-estimate.php:323
 msgid "ID"
 msgstr ""
 
-#: wc-shipping-estimate.php:323
+#: build/woocommerce-shipping-estimate.php:324
+#: woocommerce-shipping-estimate.php:324
 msgid "From (days)"
 msgstr ""
 
-#: wc-shipping-estimate.php:323
+#: build/woocommerce-shipping-estimate.php:324
+#: woocommerce-shipping-estimate.php:324
 msgid "The earliest estimated arrival. Can be left blank."
 msgstr ""
 
-#: wc-shipping-estimate.php:324
+#: build/woocommerce-shipping-estimate.php:325
+#: woocommerce-shipping-estimate.php:325
 msgid "To (days)"
 msgstr ""
 
-#: wc-shipping-estimate.php:324
+#: build/woocommerce-shipping-estimate.php:325
+#: woocommerce-shipping-estimate.php:325
 msgid "The latest estimated arrival. Can be left blank."
 msgstr ""
 
-#: wc-shipping-estimate.php:349
+#: build/woocommerce-shipping-estimate.php:350
+#: woocommerce-shipping-estimate.php:350
 msgid "Set the estimated range of days required for each method."
 msgstr ""
 
@@ -112,7 +135,7 @@ msgid "WooCommerce Shipping Estimates"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://github.com/skyverge/woocommerce-shipping-estimate/"
+msgid "http://skyverge.com/product/woocommerce-shipping-estimate/"
 msgstr ""
 
 #. Description of the plugin/theme

@@ -1,12 +1,12 @@
 <?php
 /**
  * Plugin Name: WooCommerce Shipping Estimates
- * Plugin URI: http://github.com/skyverge/woocommerce-shipping-estimate/
+ * Plugin URI: http://skyverge.com/product/woocommerce-shipping-estimate/
  * Description: Displays a shipping estimate for each method on the cart / checkout page
  * Author: SkyVerge
  * Author URI: http://www.skyverge.com/
- * Version: 1.0.0
- * Text Domain: wc-shipping-estimate
+ * Version: 1.0.1
+ * Text Domain: woocommerce-shipping-estimate
  *
  * Copyright: (c) 2015 SkyVerge, Inc. (info@skyverge.com)
  *
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class WC_Shipping_Estimate {
 
-	const VERSION = '1.0.0';
+	const VERSION = '1.0.1';
 
 
 	/** @var WC_Shipping_Estimate single instance of this plugin */
@@ -99,7 +99,7 @@ class WC_Shipping_Estimate {
 	public function add_plugin_links( $links ) {
 
 		$plugin_links = array(
-			'<a href="' . admin_url( 'admin.php?page=wc-settings&tab=shipping' ) . '">' . __( 'Configure', 'wc-shipping-estimate' ) . '</a>',
+			'<a href="' . admin_url( 'admin.php?page=wc-settings&tab=shipping' ) . '">' . __( 'Configure', 'woocommerce-shipping-estimate' ) . '</a>',
 		);
 
 		return array_merge( $plugin_links, $links );
@@ -113,7 +113,7 @@ class WC_Shipping_Estimate {
 	 */
 	public function load_translation() {
 		// localization
-		load_plugin_textdomain( 'wc-shipping-estimate', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/languages' );
+		load_plugin_textdomain( 'woocommerce-shipping-estimate', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/languages' );
 	}
 
 
@@ -130,8 +130,8 @@ class WC_Shipping_Estimate {
 	 */
 	public function render_estimate_label( $label, $method ) {
 
-		$method_estimate_from = get_option( 'woocommerce_shipping_method_estimate_from', array() );
-		$method_estimate_to = get_option( 'woocommerce_shipping_method_estimate_to', array() );
+		$method_estimate_from = get_option( 'wc_shipping_method_estimate_from', array() );
+		$method_estimate_to = get_option( 'wc_shipping_method_estimate_to', array() );
 
 		$days_from_setting = $method_estimate_from[ $method->method_id ];
 		$days_to_setting = $method_estimate_to[ $method->method_id ];
@@ -141,9 +141,9 @@ class WC_Shipping_Estimate {
 
 		// Should we display days or dates to the customer?
 		if ( 'dates' === get_option( 'wc_shipping_estimate_format', 'days' ) ) {
-			$label = $this->generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label );
+			$label = esc_html( $this->generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label ) );
 		} else {
-			$label = $this->generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label );
+			$label = esc_html( $this->generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label ) );
 		}
 
 		// label complete
@@ -164,7 +164,7 @@ class WC_Shipping_Estimate {
 	 */
 	private function generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label ) {
 
-		// Filter the "days" value so it can be changed (i.e., use a date instead)
+		// Filter the "days" value in case you want to add a buffer or whatever /shrug
 		$days_from = apply_filters( 'wc_shipping_estimate_days_from', $days_from_setting  );
 		$days_to = apply_filters( 'wc_shipping_estimate_days_to', $days_to_setting );
 
@@ -175,24 +175,24 @@ class WC_Shipping_Estimate {
 			if ( $days_to_setting <= $days_from_setting ) {
 
 				/* translators: %1$s (number) is maximum shipping estimate, %2$s is label (day(s)) */
-				$label .= esc_html( sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'wc-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) ) );
+				$label .= sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
 
 			} else {
 
 				/* translators: %1$s (number) is minimum shipping estimate, %2$s (number) is maximum shipping estimate, %$3s is label (day(s)) */
-				$label .= esc_html( sprintf( __( 'Delivery estimate: %1$s - %2$s %3$s', 'wc-shipping-estimate' ), $days_from, $days_to, $this->get_estimate_label( $days_to ) ) );
+				$label .= sprintf( __( 'Delivery estimate: %1$s - %2$s %3$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to, $this->get_estimate_label( $days_to ) );
 
 			}
 
 		} elseif ( empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
 
 			/* translators: %1$s (number) is maximum shipping estimate, %2$s is label (day(s)) */
-			$label .= esc_html( sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'wc-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) ) );
+			$label .= sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
 
 		} elseif ( ! empty( $days_from_setting ) && empty( $days_to_setting ) ) {
 
 			/* translators: %1$s (number) is minimum shipping estimate, %2$s is label (day(s)) */
-			$label .= esc_html( sprintf( __( 'Delivery estimate: at least %1$s %2$s', 'wc-shipping-estimate' ), $days_from, $this->get_estimate_label( $days_from ) ) );
+			$label .= sprintf( __( 'Delivery estimate: at least %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_from, $this->get_estimate_label( $days_from ) );
 
 		}
 
@@ -222,24 +222,24 @@ class WC_Shipping_Estimate {
 			if ( $days_to_setting <= $days_from_setting ) {
 
 				/* translators: %s (date) is latest shipping estimate */
-				$label .= esc_html( sprintf( __( 'Estimated delivery by %s', 'wc-shipping-estimate' ), $days_to ) );
+				$label .= sprintf( __( 'Estimated delivery by %s', 'woocommerce-shipping-estimate' ), $days_to );
 
 			} else {
 
 				/* translators: %1$s (date) is earliest shipping estimate, %2$s (date) is latest shipping estimate */
-				$label .= esc_html( sprintf( __( 'Estimated delivery: %1$s - %2$s', 'wc-shipping-estimate' ), $days_from, $days_to ) );
+				$label .= sprintf( __( 'Estimated delivery: %1$s - %2$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to );
 
 			}
 
 		} elseif ( empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
 
 			/* translators: %s (date) is latest shipping estimate */
-			$label .= esc_html( sprintf( __( 'Estimated delivery by %s', 'wc-shipping-estimate' ), $days_to ) );
+			$label .= sprintf( __( 'Estimated delivery by %s', 'woocommerce-shipping-estimate' ), $days_to );
 
 		} elseif ( ! empty( $days_from_setting ) && empty( $days_to_setting ) ) {
 
 			/* translators: %s (date) is earliest shipping estimate */
-			$label .= esc_html( sprintf( __( 'Delivery on or after %s', 'wc-shipping-estimate' ), $days_from ) );
+			$label .= sprintf( __( 'Delivery on or after %s', 'woocommerce-shipping-estimate' ), $days_from );
 
 		}
 
@@ -256,7 +256,7 @@ class WC_Shipping_Estimate {
 	 */
 	private function get_estimate_label( $days ) {
 
-		$estimate_label = $days > 1 ? __( 'days', 'wc-shipping-estimate' ) : __( 'day', 'wc-shipping-estimate' );
+		$estimate_label = $days > 1 ? __( 'days', 'woocommerce-shipping-estimate' ) : __( 'day', 'woocommerce-shipping-estimate' );
 		return apply_filters( 'wc_shipping_estimate_label', $estimate_label, $days );
 	}
 
@@ -274,16 +274,16 @@ class WC_Shipping_Estimate {
 
 		$new_settings = array(
 			array(
-				'id'		=> 'wc_shipping_estimate_format',
-				'type'		=> 'radio',
-				'title'		=> __( 'Shipping Estimate Format', 'wc-shipping-estimate' ),
-				'options'	=> array(
-					'days'	=> __( 'Display estimate in days' , 'wc-shipping-estimate' ),
-					'dates'	=> __( 'Display estimate using dates' , 'wc-shipping-estimate' ),
+				'id'       => 'wc_shipping_estimate_format',
+				'type'     => 'radio',
+				'title'    => __( 'Shipping Estimate Format', 'woocommerce-shipping-estimate' ),
+				'options'  => array(
+					'days'  => __( 'Display estimate in days', 'woocommerce-shipping-estimate' ),
+					'dates' => __( 'Display estimate using dates', 'woocommerce-shipping-estimate' ),
 				),
-				'default'		=> 'days',
-				'desc'		=> __( 'This changes the way estimates are shown to customers.', 'wc-shipping-estimate' ),
-				'desc_tip'	=> true,
+				'default'  => 'days',
+				'desc'     => __( 'This changes the way estimates are shown to customers.', 'woocommerce-shipping-estimate' ),
+				'desc_tip' => true,
 			),
 		);
 
@@ -302,26 +302,27 @@ class WC_Shipping_Estimate {
 
 	/**
 	 * Create WC Shipping Estimate settings table
+	 * thanks WC core - modeled off "Shipping Methods" table
 	 *
 	 * @since 1.0.0
 	 */
 	public function add_settings() {
 
 		// Get the estimates if they're saved already
-		$method_estimate_from = get_option( 'woocommerce_shipping_method_estimate_from', array() );
-		$method_estimate_to = get_option( 'woocommerce_shipping_method_estimate_to', array() );
+		$method_estimate_from = get_option( 'wc_shipping_method_estimate_from', array() );
+		$method_estimate_to = get_option( 'wc_shipping_method_estimate_to', array() );
 
 		?>
 		<tr valign="top">
-			<th scope="row" class="titledesc"><?php esc_html_e( 'Shipping Estimate', 'wc-shipping-estimate' ) ?></th>
+			<th scope="row" class="titledesc"><?php esc_html_e( 'Shipping Estimate', 'woocommerce-shipping-estimate' ) ?></th>
 			<td class="forminp">
 				<table class="wc_shipping widefat wp-list-table" cellspacing="0">
 					<thead>
 						<tr>
-							<th class="name" style="padding-left: 2% !important"><?php esc_html_e( 'Name', 'wc-shipping-estimate' ); ?></th>
-							<th class="id"><?php esc_html_e( 'ID', 'wc-shipping-estimate' ); ?></th>
-							<th class="day-from"><?php esc_html_e( 'From (days)', 'wc-shipping-estimate' ); ?> <span class="tips" data-tip="<?php echo esc_attr( __( 'The earliest estimated arrival. Can be left blank.', 'wc-shipping-estimate' ) ); ?>">[?]</span></th>
-							<th class="day-to"><?php esc_html_e( 'To (days)', 'wc-shipping-estimate' ); ?> <span class="tips" data-tip="<?php echo esc_attr( __( 'The latest estimated arrival. Can be left blank.', 'wc-shipping-estimate' ) ); ?>">[?]</span></th>
+							<th class="name" style="padding-left: 2% !important"><?php esc_html_e( 'Name', 'woocommerce-shipping-estimate' ); ?></th>
+							<th class="id"><?php esc_html_e( 'ID', 'woocommerce-shipping-estimate' ); ?></th>
+							<th class="day-from"><?php esc_html_e( 'From (days)', 'woocommerce-shipping-estimate' ); ?> <span class="tips" data-tip="<?php echo esc_attr( __( 'The earliest estimated arrival. Can be left blank.', 'woocommerce-shipping-estimate' ) ); ?>">[?]</span></th>
+							<th class="day-to"><?php esc_html_e( 'To (days)', 'woocommerce-shipping-estimate' ); ?> <span class="tips" data-tip="<?php echo esc_attr( __( 'The latest estimated arrival. Can be left blank.', 'woocommerce-shipping-estimate' ) ); ?>">[?]</span></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -346,7 +347,7 @@ class WC_Shipping_Estimate {
 					</tbody>
 					<tfoot>
 						<tr>
-							<th colspan="4" style="padding-left: 2% !important"><span class="description"><?php esc_html_e( 'Set the estimated range of days required for each method.', 'wc-shipping-estimate' ); ?></span></th>
+							<th colspan="4" style="padding-left: 2% !important"><span class="description"><?php esc_html_e( 'Set the estimated range of days required for each method.', 'woocommerce-shipping-estimate' ); ?></span></th>
 						</tr>
 					</tfoot>
 				</table>
@@ -371,10 +372,10 @@ class WC_Shipping_Estimate {
 		}
 
 		$estimate_from = isset( $_POST['method_estimate_from'] ) ? $_POST['method_estimate_from'] : '';
-		$estimate_to = isset( $_POST['method_estimate_to'] ) ? $_POST['method_estimate_to'] : '';
+		$estimate_to   = isset( $_POST['method_estimate_to'] ) ? $_POST['method_estimate_to'] : '';
 
 		$method_estimate_from = array();
-		$method_estimate_to = array();
+		$method_estimate_to   = array();
 
 		if ( is_array( $estimate_from ) && count( $estimate_from ) > 0 ) {
 
@@ -398,8 +399,8 @@ class WC_Shipping_Estimate {
 			}
 		}
 
-		update_option( 'woocommerce_shipping_method_estimate_from', $method_estimate_from );
-		update_option( 'woocommerce_shipping_method_estimate_to', $method_estimate_to );
+		update_option( 'wc_shipping_method_estimate_from', $method_estimate_from );
+		update_option( 'wc_shipping_method_estimate_to', $method_estimate_to );
 	}
 
 
