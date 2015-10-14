@@ -6,7 +6,7 @@ Requires at least: 3.8
 Tested up to: 4.3.1
 Requires WooCommerce at least: 2.2
 Tested WooCommerce up to: 2.4.7
-Stable Tag: 1.0.0
+Stable Tag: 1.0.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -101,5 +101,9 @@ Please do! Join in on our [GitHub repository](https://github.com/skyverge/woocom
 
 == Changelog ==
 
-= 2015.10.15 - version 1.0.0 =
+= 2015.10.15 - version 1.0.1 =
+ * Misc: cleaned up escaping
+ * Misc: folder & text domain naming consistency
+
+= 2015.10.13 - version 1.0.0 =
  * Initial Release

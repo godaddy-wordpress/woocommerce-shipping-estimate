@@ -12,6 +12,10 @@ This plugin supports any individual WooCommerce shipping method and can let the 
 
 You can set a minimum delivery estimate, maximum estimate, or both for any / all shipping methods. The delivery label will adjust accordingly.
 
+### Translating
+
+The plugin is translation ready, and the text domain is `woocommerce-shipping-estimate`. Translator notes are included for placeholders to provide context.
+
 ### Contributing
 
 We're happy to accept contributions! Feel free to add an issue or submit a PR :)
@@ -19,4 +23,4 @@ We're happy to accept contributions! Feel free to add an issue or submit a PR :)
 ### Helpful Links
 
  - The [screenshots](https://github.com/skyverge/woocommerce-shipping-estimate/tree/master/screenshots) will show you the plugin in action.
- - Found it useful? We always [appreciate donations](https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@skyverge.com&item_name=Donation+for+WooCommerce+Shipping+Estimates) to fund more free development.
+ - Found it useful? We love hearing feedback, and we always [appreciate donations](https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@skyverge.com&item_name=Donation+for+WooCommerce+Shipping+Estimates) to fund more free development.
