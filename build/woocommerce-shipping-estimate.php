@@ -5,7 +5,7 @@
  * Description: Displays a shipping estimate for each method on the cart / checkout page
  * Author: SkyVerge
  * Author URI: http://www.skyverge.com/
- * Version: 1.0.1
+ * Version: 1.0.2
  * Text Domain: woocommerce-shipping-estimate
  *
  * Copyright: (c) 2015 SkyVerge, Inc. (info@skyverge.com)
@@ -23,6 +23,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+
 /**
  * Plugin Description
  *
@@ -36,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class WC_Shipping_Estimate {
 
-	const VERSION = '1.0.1';
+	const VERSION = '1.0.2';
 
 
 	/** @var WC_Shipping_Estimate single instance of this plugin */
@@ -49,7 +50,7 @@ class WC_Shipping_Estimate {
 		add_action( 'init', array( $this, 'load_translation' ) );
 
 		// add delivery estimates on the frontend
-		add_action( 'woocommerce_cart_shipping_method_full_label', array( $this, 'render_estimate_label' ), 10, 2 );
+		add_filter( 'woocommerce_cart_shipping_method_full_label', array( $this, 'render_estimate_label' ), 10, 2 );
 
 		if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
 
@@ -141,9 +142,9 @@ class WC_Shipping_Estimate {
 
 		// Should we display days or dates to the customer?
 		if ( 'dates' === get_option( 'wc_shipping_estimate_format', 'days' ) ) {
-			$label = esc_html( $this->generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label ) );
+			$label = $this->generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label );
 		} else {
-			$label = esc_html( $this->generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label ) );
+			$label = $this->generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label );
 		}
 
 		// label complete
