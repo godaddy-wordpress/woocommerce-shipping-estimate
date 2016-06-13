@@ -2,11 +2,11 @@
 Contributors: skyverge, beka.rice
 Tags: woocommerce, shipping, shipping time, shipping estimate, woocommerce shipping
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@skyverge.com&item_name=Donation+for+WooCommerce+Shipping+Estimates
-Requires at least: 3.8
-Tested up to: 4.3.1
-Requires WooCommerce at least: 2.2
-Tested WooCommerce up to: 2.4.7
-Stable Tag: 1.0.2
+Requires at least: 4.4
+Tested up to: 4.5.2
+Requires WooCommerce at least: 2.6.0
+Tested WooCommerce up to: 2.6.0
+Stable Tag: 1.1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -14,7 +14,7 @@ Displays shipping time estimates for WooCommerce shipping methods on the cart an
 
 == Description ==
 
-> **Requires: WooCommerce 2.2+**, Compatible with WooCommerce 2.3 or newer
+> **Requires: WooCommerce 2.6+** or newer
 
 This plugin displays an estimated number of days or estimated delivery dates for any shipping method on the cart and checkout pages. This can let you add some text to let your customers know when an order will arrive.
 
@@ -27,6 +27,7 @@ If you enable display by date instead of day, this will automatically show the c
 WooCommerce Shipping Estimates can:
 
  - add delivery / shipping estimates to some or all shipping methods
+ - **supports shipping zones** and lets you set estimates per zone / method
  - show a range of days when the order might arrive with the selected method (e.g., "4 - 7 days")
  - show a range of dates when the order might arrive (e.g., "January 1 - January 3")
  - show a minimum delivery estimate (e.g., "at least 2 days" or "on or after January 1")
@@ -51,7 +52,7 @@ Support includes help with configuration questions and bug fixes, and does not i
 
 == Installation ==
 
-1. Be sure you're running WooCommerce 2.2+ in your shop.
+1. Be sure you're running WooCommerce 2.6+ in your shop.
 2. You can: (1) upload the entire `woocommerce-shipping-estimate` folder to the `/wp-content/plugins/` directory, (2) upload the .zip file with the plugin under **Plugins &gt; Add New &gt; Upload**, or (3) Search for "WooCommerce Shipping Estimate" under Plugins &gt; Add New
 3. Activate the plugin through the **Plugins** menu in WordPress
 4. Click the "Configure" plugin link or go to **WooCommerce &gt; Settings &gt; Shipping** and scroll down to the "Shipping Estimate" section. Enter the days required for each shipping method. You may leave any blank as needed.
@@ -95,11 +96,15 @@ Please do! Join in on our [GitHub repository](https://github.com/skyverge/woocom
 1. Plugin Settings
 2. Shipping estimate with day range
 3. Open-ended shipping estimates
-4. Cart page shipping estimates displayed
-5. Open-ended estimates with dates
-6. Date range estimate
+4. Date range estimate
 
 == Changelog ==
+
+= 2016.06.14 - version 2.0.0 =
+ * Feature: Estimates can be set on a per-zone and per-method basis
+ * Feature: Adds support for the [GitHub updater plugin](https://github.com/afragen/github-updater)
+ * Misc: Added support for WooCommerce 2.6
+ * Misc: Removed support for WooCommerce versions older than 2.6
 
 = 2015.12.14 - version 1.0.2 = 
  * Fix: remove escaping due to WooCommerce core change in label handling

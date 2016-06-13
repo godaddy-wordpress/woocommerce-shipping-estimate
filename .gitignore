@@ -1,10 +1,17 @@
+*.zip
+.DS_Store
 
-.idea/vcs.xml
+# Grunt.js SASS cache files
+/.sass-cache
 
-.idea/workspace.xml
+# NPM packages used by Grunt.js
+/node_modules
 
-.idea/misc.xml
+# NPM debug log
+npm-debug.log
 
-*.xml
+# build directory
+/build
 
-.idea/woocommerce-shipping-estimate.iml
+# PhpStorm
+.idea/

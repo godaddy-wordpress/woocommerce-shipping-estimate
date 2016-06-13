@@ -1,132 +1,192 @@
-# Copyright (C) 2015 SkyVerge
+# Copyright (C) 2016 SkyVerge
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Shipping Estimates 1.0.2\n"
+"Project-Id-Version: WooCommerce Shipping Estimates 2.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/skyverge/woocommerce-shipping-estimate/issues\n"
 "POT-Creation-Date: 2015-10-13 21:32:53+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: build/woocommerce-shipping-estimate.php:103
-#: woocommerce-shipping-estimate.php:103
+#: build/woocommerce-shipping-estimate.php:44
+#: woocommerce-shipping-estimate.php:44
+#. translators: %1$s and %2$s are <strong> tags. %3$s and %4$s are <a> tags
+msgid ""
+"%1$sWooCommerce Shipping Estimates is inactive.%2$s This plugin requires "
+"WooCommerce 2.6 or newer. Please %3$supdate WooCommerce to version 2.6 or "
+"newer%4$s"
+msgstr ""
+
+#: build/woocommerce-shipping-estimate.php:136
+#: woocommerce-shipping-estimate.php:136
+#. translators: Placeholders: %s - plugin name
+msgid "You cannot clone instances of %s."
+msgstr ""
+
+#: build/woocommerce-shipping-estimate.php:147
+#: woocommerce-shipping-estimate.php:147
+#. translators: Placeholders: %s - plugin name
+msgid "You cannot unserialize instances of %s."
+msgstr ""
+
+#: build/woocommerce-shipping-estimate.php:161
+#: woocommerce-shipping-estimate.php:161
 msgid "Configure"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:179
-#: build/woocommerce-shipping-estimate.php:191
-#: woocommerce-shipping-estimate.php:179 woocommerce-shipping-estimate.php:191
+#: build/woocommerce-shipping-estimate.php:266
+#: build/woocommerce-shipping-estimate.php:278
+#: woocommerce-shipping-estimate.php:266 woocommerce-shipping-estimate.php:278
 #. translators: %1$s (number) is maximum shipping estimate, %2$s is label
 #. (day(s))
 msgid "Delivery estimate: up to %1$s %2$s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:184
-#: woocommerce-shipping-estimate.php:184
+#: build/woocommerce-shipping-estimate.php:271
+#: woocommerce-shipping-estimate.php:271
 #. translators: %1$s (number) is minimum shipping estimate, %2$s (number) is
 #. maximum shipping estimate, %$3s is label (day(s))
 msgid "Delivery estimate: %1$s - %2$s %3$s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:196
-#: woocommerce-shipping-estimate.php:196
+#: build/woocommerce-shipping-estimate.php:283
+#: woocommerce-shipping-estimate.php:283
 #. translators: %1$s (number) is minimum shipping estimate, %2$s is label
 #. (day(s))
 msgid "Delivery estimate: at least %1$s %2$s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:226
-#: build/woocommerce-shipping-estimate.php:238
-#: woocommerce-shipping-estimate.php:226 woocommerce-shipping-estimate.php:238
+#: build/woocommerce-shipping-estimate.php:313
+#: build/woocommerce-shipping-estimate.php:325
+#: woocommerce-shipping-estimate.php:313 woocommerce-shipping-estimate.php:325
 #. translators: %s (date) is latest shipping estimate
 msgid "Estimated delivery by %s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:231
-#: woocommerce-shipping-estimate.php:231
+#: build/woocommerce-shipping-estimate.php:318
+#: woocommerce-shipping-estimate.php:318
 #. translators: %1$s (date) is earliest shipping estimate, %2$s (date) is
 #. latest shipping estimate
 msgid "Estimated delivery: %1$s - %2$s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:243
-#: woocommerce-shipping-estimate.php:243
+#: build/woocommerce-shipping-estimate.php:330
+#: woocommerce-shipping-estimate.php:330
 #. translators: %s (date) is earliest shipping estimate
 msgid "Delivery on or after %s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:260
-#: woocommerce-shipping-estimate.php:260
-msgid "days"
-msgstr ""
-
-#: build/woocommerce-shipping-estimate.php:260
-#: woocommerce-shipping-estimate.php:260
+#: build/woocommerce-shipping-estimate.php:347
+#: woocommerce-shipping-estimate.php:347
 msgid "day"
+msgid_plural "days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: build/woocommerce-shipping-estimate.php:363
+#: woocommerce-shipping-estimate.php:363
+msgid "Shipping Estimates"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:280
-#: woocommerce-shipping-estimate.php:280
+#: build/woocommerce-shipping-estimate.php:368
+#: woocommerce-shipping-estimate.php:368
 msgid "Shipping Estimate Format"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:282
-#: woocommerce-shipping-estimate.php:282
+#: build/woocommerce-shipping-estimate.php:370
+#: woocommerce-shipping-estimate.php:370
 msgid "Display estimate in days"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:283
-#: woocommerce-shipping-estimate.php:283
+#: build/woocommerce-shipping-estimate.php:371
+#: woocommerce-shipping-estimate.php:371
 msgid "Display estimate using dates"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:286
-#: woocommerce-shipping-estimate.php:286
+#: build/woocommerce-shipping-estimate.php:374
+#: woocommerce-shipping-estimate.php:374
 msgid "This changes the way estimates are shown to customers."
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:318
-#: woocommerce-shipping-estimate.php:318
-msgid "Shipping Estimate"
+#: build/woocommerce-shipping-estimate.php:400
+#: woocommerce-shipping-estimate.php:400
+msgid "Estimate Ranges"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:323
-#: woocommerce-shipping-estimate.php:323
+#: build/woocommerce-shipping-estimate.php:415
+#: build/woocommerce-shipping-estimate.php:455
+#: woocommerce-shipping-estimate.php:415 woocommerce-shipping-estimate.php:455
+msgid "Methods"
+msgstr ""
+
+#: build/woocommerce-shipping-estimate.php:419
+#: build/woocommerce-shipping-estimate.php:459
+#: build/woocommerce-shipping-estimate.php:494
+#: woocommerce-shipping-estimate.php:419 woocommerce-shipping-estimate.php:459
+#: woocommerce-shipping-estimate.php:494
 msgid "Name"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:324
-#: woocommerce-shipping-estimate.php:324
-msgid "ID"
+#: build/woocommerce-shipping-estimate.php:420
+#: build/woocommerce-shipping-estimate.php:460
+#: woocommerce-shipping-estimate.php:420 woocommerce-shipping-estimate.php:460
+msgid "Type"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:325
-#: woocommerce-shipping-estimate.php:325
+#: build/woocommerce-shipping-estimate.php:421
+#: build/woocommerce-shipping-estimate.php:461
+#: build/woocommerce-shipping-estimate.php:496
+#: woocommerce-shipping-estimate.php:421 woocommerce-shipping-estimate.php:461
+#: woocommerce-shipping-estimate.php:496
 msgid "From (days)"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:325
-#: woocommerce-shipping-estimate.php:325
+#: build/woocommerce-shipping-estimate.php:421
+#: build/woocommerce-shipping-estimate.php:461
+#: build/woocommerce-shipping-estimate.php:496
+#: woocommerce-shipping-estimate.php:421 woocommerce-shipping-estimate.php:461
+#: woocommerce-shipping-estimate.php:496
 msgid "The earliest estimated arrival. Can be left blank."
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:326
-#: woocommerce-shipping-estimate.php:326
+#: build/woocommerce-shipping-estimate.php:422
+#: build/woocommerce-shipping-estimate.php:462
+#: build/woocommerce-shipping-estimate.php:497
+#: woocommerce-shipping-estimate.php:422 woocommerce-shipping-estimate.php:462
+#: woocommerce-shipping-estimate.php:497
 msgid "To (days)"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:326
-#: woocommerce-shipping-estimate.php:326
+#: build/woocommerce-shipping-estimate.php:422
+#: build/woocommerce-shipping-estimate.php:462
+#: build/woocommerce-shipping-estimate.php:497
+#: woocommerce-shipping-estimate.php:422 woocommerce-shipping-estimate.php:462
+#: woocommerce-shipping-estimate.php:497
 msgid "The latest estimated arrival. Can be left blank."
 msgstr ""
 
-#: build/woocommerce-shipping-estimate.php:351
-#: woocommerce-shipping-estimate.php:351
+#: build/woocommerce-shipping-estimate.php:453
+#: woocommerce-shipping-estimate.php:453
+msgid "Rest of the World"
+msgstr ""
+
+#: build/woocommerce-shipping-estimate.php:491
+#: woocommerce-shipping-estimate.php:491
+msgid "Other Methods"
+msgstr ""
+
+#: build/woocommerce-shipping-estimate.php:495
+#: woocommerce-shipping-estimate.php:495
+msgid "ID"
+msgstr ""
+
+#: build/woocommerce-shipping-estimate.php:523
+#: woocommerce-shipping-estimate.php:523
 msgid "Set the estimated range of days required for each method."
 msgstr ""
 

@@ -5,10 +5,13 @@
  * Description: Displays a shipping estimate for each method on the cart / checkout page
  * Author: SkyVerge
  * Author URI: http://www.skyverge.com/
- * Version: 1.0.2
+ * Version: 2.0.0
  * Text Domain: woocommerce-shipping-estimate
  *
- * Copyright: (c) 2015 SkyVerge, Inc. (info@skyverge.com)
+ * GitHub Plugin URI: Skyverge/woocommerce-shipping-estimate
+ * GitHub Branch: master
+ *
+ * Copyright: (c) 2015-2016 SkyVerge, Inc. (info@skyverge.com)
  *
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -16,12 +19,46 @@
  * @package   WC-Shipping-Estimate
  * @author    SkyVerge
  * @category  Admin
- * @copyright Copyright (c) 2015, SkyVerge, Inc.
+ * @copyright Copyright (c) 2015-2016, SkyVerge, Inc.
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  *
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+defined( 'ABSPATH' ) or exit;
+
+
+// Check if WooCommerce is active
+if ( ! WC_Shipping_Estimate::is_woocommerce_active() ) {
+	return;
+}
+
+
+// WC version check
+if ( version_compare( get_option( 'woocommerce_db_version' ), '2.6.0', '<' ) ) {
+
+	function wc_shipping_estimate_outdated_version_notice() {
+
+		$message = sprintf(
+			/* translators: %1$s and %2$s are <strong> tags. %3$s and %4$s are <a> tags */
+			esc_html__( '%1$sWooCommerce Shipping Estimates is inactive.%2$s This plugin requires WooCommerce 2.6 or newer. Please %3$supdate WooCommerce to version 2.6 or newer%4$s', 'woocommerce-shipping-estimate' ),
+			'<strong>',
+			'</strong>',
+			'<a href="' . admin_url( 'plugins.php' ) . '">',
+			'&nbsp;&raquo;</a>'
+		);
+
+		echo sprintf( '<div class="error"><p>%s</p></div>', $message );
+	}
+
+	add_action( 'admin_notices', 'wc_shipping_estimate_outdated_version_notice' );
+
+	return;
+}
+
+
+// Make sure WC is loaded first & fire it up!
+add_action( 'plugins_loaded', 'wc_shipping_estimate' );
 
 
 /**
@@ -34,10 +71,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * if only one value is set.
  */
 
-
 class WC_Shipping_Estimate {
 
-	const VERSION = '1.0.2';
+	const VERSION = '2.0.0';
 
 
 	/** @var WC_Shipping_Estimate single instance of this plugin */
@@ -52,13 +88,13 @@ class WC_Shipping_Estimate {
 		// add delivery estimates on the frontend
 		add_filter( 'woocommerce_cart_shipping_method_full_label', array( $this, 'render_estimate_label' ), 10, 2 );
 
-		if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
+		if ( is_admin() && ! is_ajax() ) {
 
 			// add format selector
 			add_filter( 'woocommerce_shipping_settings', array( $this, 'add_format_selector' ) );
 
 			// add settings table
-			add_action( 'woocommerce_settings_shipping_options_end', array( $this, 'add_settings' ) );
+			add_action( 'woocommerce_settings_wc_shipping_estimates_end', array( $this, 'add_settings' ) );
 
 			// save the new options
 			add_action( 'woocommerce_settings_save_shipping', array( $this, 'process_method_estimate' ) );
@@ -88,6 +124,28 @@ class WC_Shipping_Estimate {
 		}
 		return self::$instance;
 	}
+	
+	
+	/**
+	 * Cloning instances is forbidden due to singleton pattern.
+	 *
+	 * @since 2.0.0
+	 */
+	public function __clone() {
+		/* translators: Placeholders: %s - plugin name */
+		_doing_it_wrong( __FUNCTION__, sprintf( esc_html__( 'You cannot clone instances of %s.', 'woocommerce-shipping-estimate' ), 'WooCommerce Shipping Estimates' ), '2.0.0' );
+	}
+	
+	
+	/**
+	 * Unserializing instances is forbidden due to singleton pattern.
+	 *
+	 * @since 2.0.0
+	 */
+	public function __wakeup() {
+		/* translators: Placeholders: %s - plugin name */
+		_doing_it_wrong( __FUNCTION__, sprintf( esc_html__( 'You cannot unserialize instances of %s.', 'woocommerce-shipping-estimate' ), 'WooCommerce Shipping Estimates' ), '2.0.0' );
+	}
 
 
 	/**
@@ -100,9 +158,9 @@ class WC_Shipping_Estimate {
 	public function add_plugin_links( $links ) {
 
 		$plugin_links = array(
-			'<a href="' . admin_url( 'admin.php?page=wc-settings&tab=shipping' ) . '">' . __( 'Configure', 'woocommerce-shipping-estimate' ) . '</a>',
+			'<a href="' . admin_url( 'admin.php?page=wc-settings&tab=shipping&section=options' ) . '">' . __( 'Configure', 'woocommerce-shipping-estimate' ) . '</a>',
+			'<a href="https://github.com/skyverge/woocommerce-shipping-estimate">GitHub</a>',
 		);
-
 		return array_merge( $plugin_links, $links );
 	}
 
@@ -116,6 +174,25 @@ class WC_Shipping_Estimate {
 		// localization
 		load_plugin_textdomain( 'woocommerce-shipping-estimate', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/languages' );
 	}
+	
+	
+	/**
+	 * Checks if WooCommerce is active
+	 *
+	 * @since 2.0.0
+	 * @return bool true if WooCommerce is active, false otherwise
+	 */
+	public static function is_woocommerce_active() {
+	
+		$active_plugins = (array) get_option( 'active_plugins', array() );
+		
+		if ( is_multisite() ) {
+			$active_plugins = array_merge( $active_plugins, get_site_option( 'active_sitewide_plugins', array() ) );
+		}
+		
+		return in_array( 'woocommerce/woocommerce.php', $active_plugins ) || array_key_exists( 'woocommerce/woocommerce.php', $active_plugins );
+	}
+
 
 
 	/** Plugin methods ***************************************/
@@ -127,15 +204,25 @@ class WC_Shipping_Estimate {
 	 * @since 1.0.0
 	 * @param string $label the existing method label
 	 * @param \WC_Shipping_Rate $method the shipping method
-	 * @return string $label the updated label
+	 * @return string - the updated label
 	 */
 	public function render_estimate_label( $label, $method ) {
+	
+		// get the instance ID in case this is a zone method
+		$instance_id = (int) substr( $method->id, strpos( $method->id, ':' ) + 1 );
+		
+		$method_id = $instance_id ? (int) $instance_id : $method->method_id;
 
 		$method_estimate_from = get_option( 'wc_shipping_method_estimate_from', array() );
 		$method_estimate_to = get_option( 'wc_shipping_method_estimate_to', array() );
-
-		$days_from_setting = $method_estimate_from[ $method->method_id ];
-		$days_to_setting = $method_estimate_to[ $method->method_id ];
+		
+		$days_from_setting = isset( $method_estimate_from[ $method_id ] ) ? $method_estimate_from[ $method_id ] : 0;
+		$days_to_setting = isset( $method_estimate_to[ $method_id ] ) ? $method_estimate_to[ $method_id ]: 0;
+		
+		// bail if there are no changes to make to the label
+		if ( ! $days_from_setting && ! $days_to_setting ) {
+			return $label;
+		}
 
 		// build me a label!
 		$label .= '<br /><small>';
@@ -257,7 +344,7 @@ class WC_Shipping_Estimate {
 	 */
 	private function get_estimate_label( $days ) {
 
-		$estimate_label = $days > 1 ? __( 'days', 'woocommerce-shipping-estimate' ) : __( 'day', 'woocommerce-shipping-estimate' );
+		$estimate_label = _n( 'day', 'days', $days, 'woocommerce-shipping-estimate' );
 		return apply_filters( 'wc_shipping_estimate_label', $estimate_label, $days );
 	}
 
@@ -271,9 +358,10 @@ class WC_Shipping_Estimate {
 	 */
 	public function add_format_selector( $settings ) {
 
-		$updated_settings = array();
-
 		$new_settings = array(
+		
+			array( 'title' => __( 'Shipping Estimates', 'woocommerce-shipping-estimate' ), 'type' => 'title', 'id' => 'wc_shipping_estimates' ),
+			
 			array(
 				'id'       => 'wc_shipping_estimate_format',
 				'type'     => 'radio',
@@ -286,18 +374,12 @@ class WC_Shipping_Estimate {
 				'desc'     => __( 'This changes the way estimates are shown to customers.', 'woocommerce-shipping-estimate' ),
 				'desc_tip' => true,
 			),
+			
+			array( 'type' => 'sectionend', 'id' => 'wc_shipping_estimates' ),
 		);
 
-		foreach ( $settings as $setting ) {
-
-			$updated_settings[] = $setting;
-
-			if ( isset( $setting['type'] ) && 'shipping_methods' === $setting['type'] ) {
-				$updated_settings = array_merge( $updated_settings, $new_settings );
-			}
-		}
-
-		return $updated_settings;
+		$settings = array_merge( $settings, $new_settings );
+		return $settings;
 	}
 
 
@@ -315,37 +397,127 @@ class WC_Shipping_Estimate {
 
 		?>
 		<tr valign="top">
-			<th scope="row" class="titledesc"><?php esc_html_e( 'Shipping Estimate', 'woocommerce-shipping-estimate' ) ?></th>
+			<th scope="row" class="titledesc"><?php esc_html_e( 'Estimate Ranges', 'woocommerce-shipping-estimate' ) ?></th>
 			<td class="forminp">
 				<table class="wc_shipping widefat wp-list-table" cellspacing="0">
+				<?php $zones = WC_Shipping_Zones::get_zones(); ?>
+				<?php if ( ! empty( $zones ) ) : ?>
+				<?php foreach ( $zones as $zone_id => $zone_data ) : ?>
+					<?php 
+						$zone = WC_Shipping_Zones::get_zone( $zone_id ); 
+						$zone_methods = $zone->get_shipping_methods(); 
+						if ( ! empty( $zone_methods ) ) :
+					?>
 					<thead>
+						<tr style="background: #e9e9e9;">
+							<th colspan="4" style="text-align: center; border: 1px solid #e1e1e1;">
+								<?php echo sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'admin.php?page=wc-settings&tab=shipping&zone_id=' . $zone->get_id() ) ), $zone->get_zone_name() ); ?>
+								<?php esc_html_e( 'Methods', 'woocommerce-shipping-estimate' ); ?>
+							</th>
+						</tr>
 						<tr>
 							<th class="name" style="padding-left: 2% !important"><?php esc_html_e( 'Name', 'woocommerce-shipping-estimate' ); ?></th>
-							<th class="id"><?php esc_html_e( 'ID', 'woocommerce-shipping-estimate' ); ?></th>
-							<th class="day-from"><?php esc_html_e( 'From (days)', 'woocommerce-shipping-estimate' ); ?> <span class="tips" data-tip="<?php echo esc_attr( __( 'The earliest estimated arrival. Can be left blank.', 'woocommerce-shipping-estimate' ) ); ?>">[?]</span></th>
-							<th class="day-to"><?php esc_html_e( 'To (days)', 'woocommerce-shipping-estimate' ); ?> <span class="tips" data-tip="<?php echo esc_attr( __( 'The latest estimated arrival. Can be left blank.', 'woocommerce-shipping-estimate' ) ); ?>">[?]</span></th>
+							<th class="type"><?php esc_html_e( 'Type', 'woocommerce-shipping-estimate' ); ?></th>
+							<th class="day-from"><?php esc_html_e( 'From (days)', 'woocommerce-shipping-estimate' ); ?> <?php echo wc_help_tip( __( 'The earliest estimated arrival. Can be left blank.', 'woocommerce-shipping-estimate' ) ); ?></th>
+							<th class="day-to"><?php esc_html_e( 'To (days)', 'woocommerce-shipping-estimate' ); ?> <?php echo wc_help_tip( __( 'The latest estimated arrival. Can be left blank.', 'woocommerce-shipping-estimate' ) ); ?></th>
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach ( WC()->shipping->load_shipping_methods() as $key => $method ) : ?>
+					<?php foreach ( $zone->get_shipping_methods() as $instance_id => $method ) : ?>
+						<tr>
+							<td style="padding-left: 2%" class="name">
+								<a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=shipping&instance_id=' . $instance_id ) ); ?>"><?php echo esc_html( $method->get_title() ); ?></a>
+							</td>
+							<td class="type">
+								<?php echo esc_html( $method->get_method_title() ); ?>
+							</td>
+							<td class="day-from">
+								<input type="number" step="1" min="0" name="method_estimate_from[<?php echo esc_attr( $instance_id ); ?>]" value="<?php echo isset( $method_estimate_from[ $instance_id ] ) ? $method_estimate_from[ $instance_id ] : ''; ?>" />
+							</td>
+							<td class="day-to">
+								<input type="number" step="1" min="0" name="method_estimate_to[<?php echo esc_attr( $instance_id ); ?>]" value="<?php echo isset( $method_estimate_to[ $instance_id ] ) ? $method_estimate_to[ $instance_id ] : ''; ?>" />
+							</td>
+						</tr>
+					<?php endforeach; ?>
+					</tbody>
+					<?php endif; ?>
+				<?php endforeach; ?>
+				<?php endif; ?>
+				
+				<?php $world_zone =  WC_Shipping_Zones::get_zone( 0 ); ?>
+				<?php $world_zone_methods = $world_zone->get_shipping_methods(); ?>
+				<?php if ( ! empty( $world_zone_methods ) ) : ?>
+					<thead>
+						<tr style="background: #e9e9e9;">
+							<th colspan="4" style="text-align: center; border: 1px solid #e1e1e1;">
+								<?php $zone_name = __( 'Rest of the World', 'woocommerce-shipping-estimate' ); ?>
+								<?php echo sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'admin.php?page=wc-settings&tab=shipping&zone_id=0' ) ), $zone_name ); ?>
+								<?php esc_html_e( 'Methods', 'woocommerce-shipping-estimate' ); ?>
+							</th>
+						</tr>
+						<tr>
+							<th class="name" style="padding-left: 2% !important"><?php esc_html_e( 'Name', 'woocommerce-shipping-estimate' ); ?></th>
+							<th class="type"><?php esc_html_e( 'Type', 'woocommerce-shipping-estimate' ); ?></th>
+							<th class="day-from"><?php esc_html_e( 'From (days)', 'woocommerce-shipping-estimate' ); ?> <?php echo wc_help_tip( __( 'The earliest estimated arrival. Can be left blank.', 'woocommerce-shipping-estimate' ) ); ?></th>
+							<th class="day-to"><?php esc_html_e( 'To (days)', 'woocommerce-shipping-estimate' ); ?> <?php echo wc_help_tip( __( 'The latest estimated arrival. Can be left blank.', 'woocommerce-shipping-estimate' ) ); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php foreach ( $world_zone_methods as $instance_id => $method ) : ?>
+						<tr>
+							<td style="padding-left: 2%" class="name">
+								<a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=shipping&instance_id=' . $instance_id ) ); ?>"><?php echo esc_html( $method->get_title() ); ?></a>
+							</td>
+							<td class="type">
+								<?php echo esc_html( $method->get_method_title() ); ?>
+							</td>
+							<td class="day-from">
+								<input type="number" step="1" min="0" name="method_estimate_from[<?php echo esc_attr( $instance_id ); ?>]" value="<?php echo isset( $method_estimate_from[ $instance_id ] ) ? $method_estimate_from[ $instance_id ] : ''; ?>" />
+							</td>
+							<td class="day-to">
+								<input type="number" step="1" min="0" name="method_estimate_to[<?php echo esc_attr( $instance_id ); ?>]" value="<?php echo isset( $method_estimate_to[ $instance_id ] ) ? $method_estimate_to[ $instance_id ] : ''; ?>" />
+							</td>
+						</tr>
+					<?php endforeach; ?>
+					</tbody>
+					<?php endif; ?>
+					<?php 
+						$methods = WC()->shipping->get_shipping_methods(); 
+						unset( $methods['flat_rate'], $methods['free_shipping'], $methods['local_pickup'] );
+						if ( ! empty( $methods ) ) :
+					?>
+					<thead>
+						<tr style="background: #e9e9e9;">
+							<th colspan="4" style="text-align: center; border: 1px solid #e1e1e1;"><?php esc_html_e( 'Other Methods', 'woocommerce-shipping-estimate' ); ?></th>
+						</tr>
+						<tr>
+							<th class="name" style="padding-left: 2% !important"><?php esc_html_e( 'Name', 'woocommerce-shipping-estimate' ); ?></th>
+							<th class="id"><?php esc_html_e( 'ID', 'woocommerce-shipping-estimate' ); ?></th>
+							<th class="day-from"><?php esc_html_e( 'From (days)', 'woocommerce-shipping-estimate' ); ?> <?php echo wc_help_tip( __( 'The earliest estimated arrival. Can be left blank.', 'woocommerce-shipping-estimate' ) ); ?></th>
+							<th class="day-to"><?php esc_html_e( 'To (days)', 'woocommerce-shipping-estimate' ); ?> <?php echo wc_help_tip( __( 'The latest estimated arrival. Can be left blank.', 'woocommerce-shipping-estimate' ) ); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach ( $methods as $method_id => $method ) : ?>
 							<tr>
 								<td style="padding-left: 2%" class="name">
-									<?php if ( $method->has_settings ) : ?><a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=shipping&section=' . strtolower( get_class( $method ) ) ) ); ?>"><?php endif; ?>
+									<a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=shipping&section=' . $method_id ) ); ?>">
 									<?php echo esc_html( $method->get_title() ); ?>
-									<?php if ( $method->has_settings ) : ?></a><?php endif; ?>
+									</a>
 								</td>
 								<td class="id">
 									<?php echo esc_attr( $method->id ); ?>
 								</td>
 								<td class="day-from">
-									<input type="number" step="1" min="0" name="method_estimate_from[<?php echo esc_attr( $method->id ); ?>]" value="<?php echo isset( $method_estimate_from[ $method->id ] ) ? $method_estimate_from[ $method->id ] : ''; ?>" />
+									<input type="number" step="1" min="0" name="method_estimate_from[<?php echo esc_attr( $method_id ); ?>]" value="<?php echo isset( $method_estimate_from[ $method_id ] ) ? $method_estimate_from[ $method_id ] : ''; ?>" />
 								</td>
 								<td width="1%" class="day-to">
-									<input type="number" step="1" min="0" name="method_estimate_to[<?php echo esc_attr( $method->id ); ?>]" value="<?php echo isset( $method_estimate_to[ $method->id ] ) ? $method_estimate_to[ $method->id ] : ''; ?>" />
+									<input type="number" step="1" min="0" name="method_estimate_to[<?php echo esc_attr( $method_id ); ?>]" value="<?php echo isset( $method_estimate_to[ $method_id ] ) ? $method_estimate_to[ $method_id ] : ''; ?>" />
 								</td>
 							</tr>
 						<?php endforeach; ?>
 					</tbody>
+					<?php endif; ?>
 					<tfoot>
 						<tr>
 							<th colspan="4" style="padding-left: 2% !important"><span class="description"><?php esc_html_e( 'Set the estimated range of days required for each method.', 'woocommerce-shipping-estimate' ); ?></span></th>
@@ -368,7 +540,7 @@ class WC_Shipping_Estimate {
 		global $current_section;
 
 		// Bail if we're not in the "Shipping Options" section
-		if ( $current_section ) {
+		if ( 'options' !== $current_section ) {
 			return;
 		}
 
@@ -437,6 +609,10 @@ class WC_Shipping_Estimate {
 	 * @param int $installed_version the currently installed version of the plugin
 	 */
 	private function upgrade( $version ) {
+	
+		if ( -1 === version_compare( $version, '2.0.0' ) ) {
+			// any version 2.0 upgrade methods
+		}
 
 		// update the installed version option
 		update_option( 'wc_shipping_estimate_version', $version );
@@ -454,6 +630,3 @@ class WC_Shipping_Estimate {
 function wc_shipping_estimate() {
     return WC_Shipping_Estimate::instance();
 }
-
-// fire it up!
-wc_shipping_estimate();
