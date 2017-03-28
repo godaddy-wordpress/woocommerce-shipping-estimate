@@ -3,10 +3,10 @@ Contributors: skyverge, beka.rice
 Tags: woocommerce, shipping, shipping time, shipping estimate, woocommerce shipping
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@skyverge.com&item_name=Donation+for+WooCommerce+Shipping+Estimates
 Requires at least: 4.4
-Tested up to: 4.5.2
+Tested up to: 4.7.3
 Requires WooCommerce at least: 2.6.0
-Tested WooCommerce up to: 2.6.0
-Stable Tag: 1.1.0
+Tested WooCommerce up to: 3.0.0
+Stable Tag: 2.1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -100,13 +100,16 @@ Please do! Join in on our [GitHub repository](https://github.com/skyverge/woocom
 
 == Changelog ==
 
+= 2017.03.28 - version 2.1.0 =
+ * Misc: Added support for WooCommerce 3.0
+
 = 2016.06.14 - version 2.0.0 =
  * Feature: Estimates can be set on a per-zone and per-method basis
  * Feature: Adds support for the [GitHub updater plugin](https://github.com/afragen/github-updater)
  * Misc: Added support for WooCommerce 2.6
  * Misc: Removed support for WooCommerce versions older than 2.6
 
-= 2015.12.14 - version 1.0.2 = 
+= 2015.12.14 - version 1.0.2 =
  * Fix: remove escaping due to WooCommerce core change in label handling
 
 = 2015.10.15 - version 1.0.1 =

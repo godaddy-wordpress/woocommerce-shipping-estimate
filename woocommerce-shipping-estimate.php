@@ -5,13 +5,13 @@
  * Description: Displays a shipping estimate for each method on the cart / checkout page
  * Author: SkyVerge
  * Author URI: http://www.skyverge.com/
- * Version: 2.0.0
+ * Version: 2.1.0
  * Text Domain: woocommerce-shipping-estimate
  *
  * GitHub Plugin URI: Skyverge/woocommerce-shipping-estimate
  * GitHub Branch: master
  *
- * Copyright: (c) 2015-2016 SkyVerge, Inc. (info@skyverge.com)
+ * Copyright: (c) 2015-2017 SkyVerge, Inc. (info@skyverge.com)
  *
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -19,7 +19,7 @@
  * @package   WC-Shipping-Estimate
  * @author    SkyVerge
  * @category  Admin
- * @copyright Copyright (c) 2015-2016, SkyVerge, Inc.
+ * @copyright Copyright (c) 2015-2017, SkyVerge, Inc.
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  *
  */
@@ -73,13 +73,18 @@ add_action( 'plugins_loaded', 'wc_shipping_estimate' );
 
 class WC_Shipping_Estimate {
 
-	const VERSION = '2.0.0';
 
+	const VERSION = '2.1.0';
 
 	/** @var WC_Shipping_Estimate single instance of this plugin */
 	protected static $instance;
 
 
+	/**
+	 * WC_Shipping_Estimate constructor.
+	 *
+	 * @since 1.0.0
+	 */
 	public function __construct() {
 
 		// load translations
@@ -108,93 +113,6 @@ class WC_Shipping_Estimate {
 	}
 
 
-	/** Helper methods ***************************************/
-
-
-	/**
-	 * Main WC_Shipping_Estimate Instance, ensures only one instance is/can be loaded
-	 *
-	 * @since 1.0.0
-	 * @see wc_shipping_estimate()
-	 * @return WC_Shipping_Estimate
- 	*/
-	public static function instance() {
-		if ( is_null( self::$instance ) ) {
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-	
-	
-	/**
-	 * Cloning instances is forbidden due to singleton pattern.
-	 *
-	 * @since 2.0.0
-	 */
-	public function __clone() {
-		/* translators: Placeholders: %s - plugin name */
-		_doing_it_wrong( __FUNCTION__, sprintf( esc_html__( 'You cannot clone instances of %s.', 'woocommerce-shipping-estimate' ), 'WooCommerce Shipping Estimates' ), '2.0.0' );
-	}
-	
-	
-	/**
-	 * Unserializing instances is forbidden due to singleton pattern.
-	 *
-	 * @since 2.0.0
-	 */
-	public function __wakeup() {
-		/* translators: Placeholders: %s - plugin name */
-		_doing_it_wrong( __FUNCTION__, sprintf( esc_html__( 'You cannot unserialize instances of %s.', 'woocommerce-shipping-estimate' ), 'WooCommerce Shipping Estimates' ), '2.0.0' );
-	}
-
-
-	/**
-	 * Adds plugin page links
-	 *
-	 * @since 1.0.0
-	 * @param array $links all plugin links
-	 * @return array $links all plugin links + our custom links (i.e., "Settings")
-	 */
-	public function add_plugin_links( $links ) {
-
-		$plugin_links = array(
-			'<a href="' . admin_url( 'admin.php?page=wc-settings&tab=shipping&section=options' ) . '">' . __( 'Configure', 'woocommerce-shipping-estimate' ) . '</a>',
-			'<a href="https://github.com/skyverge/woocommerce-shipping-estimate">GitHub</a>',
-		);
-		return array_merge( $plugin_links, $links );
-	}
-
-
-	/**
-	 * Load Translations
-	 *
-	 * @since 1.0.0
-	 */
-	public function load_translation() {
-		// localization
-		load_plugin_textdomain( 'woocommerce-shipping-estimate', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/languages' );
-	}
-	
-	
-	/**
-	 * Checks if WooCommerce is active
-	 *
-	 * @since 2.0.0
-	 * @return bool true if WooCommerce is active, false otherwise
-	 */
-	public static function is_woocommerce_active() {
-	
-		$active_plugins = (array) get_option( 'active_plugins', array() );
-		
-		if ( is_multisite() ) {
-			$active_plugins = array_merge( $active_plugins, get_site_option( 'active_sitewide_plugins', array() ) );
-		}
-		
-		return in_array( 'woocommerce/woocommerce.php', $active_plugins ) || array_key_exists( 'woocommerce/woocommerce.php', $active_plugins );
-	}
-
-
-
 	/** Plugin methods ***************************************/
 
 
@@ -202,23 +120,23 @@ class WC_Shipping_Estimate {
 	 * Displays the updated shipping method label
 	 *
 	 * @since 1.0.0
+	 *
 	 * @param string $label the existing method label
 	 * @param \WC_Shipping_Rate $method the shipping method
 	 * @return string - the updated label
 	 */
 	public function render_estimate_label( $label, $method ) {
-	
+
 		// get the instance ID in case this is a zone method
 		$instance_id = (int) substr( $method->id, strpos( $method->id, ':' ) + 1 );
-		
-		$method_id = $instance_id ? (int) $instance_id : $method->method_id;
+		$method_id   = $instance_id ? (int) $instance_id : $method->method_id;
 
 		$method_estimate_from = get_option( 'wc_shipping_method_estimate_from', array() );
-		$method_estimate_to = get_option( 'wc_shipping_method_estimate_to', array() );
-		
+		$method_estimate_to   = get_option( 'wc_shipping_method_estimate_to', array() );
+
 		$days_from_setting = isset( $method_estimate_from[ $method_id ] ) ? $method_estimate_from[ $method_id ] : 0;
-		$days_to_setting = isset( $method_estimate_to[ $method_id ] ) ? $method_estimate_to[ $method_id ]: 0;
-		
+		$days_to_setting   = isset( $method_estimate_to[ $method_id ] )   ? $method_estimate_to[ $method_id ]   : 0;
+
 		// bail if there are no changes to make to the label
 		if ( ! $days_from_setting && ! $days_to_setting ) {
 			return $label;
@@ -245,6 +163,7 @@ class WC_Shipping_Estimate {
 	 * Generate the delivery estimate display for the label
 	 *
 	 * @since 1.0.0
+	 *
 	 * @param int $days_from_setting the minimum shipping estimate
 	 * @param int $days_to_setting the maximum shipping estimate
 	 * @param string $label the label we're in the process of updating
@@ -252,9 +171,9 @@ class WC_Shipping_Estimate {
 	 */
 	private function generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label ) {
 
-		// Filter the "days" value in case you want to add a buffer or whatever /shrug
-		$days_from = apply_filters( 'wc_shipping_estimate_days_from', $days_from_setting  );
-		$days_to = apply_filters( 'wc_shipping_estimate_days_to', $days_to_setting );
+		// Filter the "days" value in case you want to add a buffer or whatever ¯\_(ツ)_/¯
+		$days_from = apply_filters( 'wc_shipping_estimate_days_from', $days_from_setting );
+		$days_to   = apply_filters( 'wc_shipping_estimate_days_to', $days_to_setting );
 
 		// Determine how we should format the estimate
 		if ( ! empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
@@ -269,7 +188,6 @@ class WC_Shipping_Estimate {
 
 				/* translators: %1$s (number) is minimum shipping estimate, %2$s (number) is maximum shipping estimate, %$3s is label (day(s)) */
 				$label .= sprintf( __( 'Delivery estimate: %1$s - %2$s %3$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to, $this->get_estimate_label( $days_to ) );
-
 			}
 
 		} elseif ( empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
@@ -281,7 +199,6 @@ class WC_Shipping_Estimate {
 
 			/* translators: %1$s (number) is minimum shipping estimate, %2$s is label (day(s)) */
 			$label .= sprintf( __( 'Delivery estimate: at least %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_from, $this->get_estimate_label( $days_from ) );
-
 		}
 
 		return $label;
@@ -292,6 +209,7 @@ class WC_Shipping_Estimate {
 	 * Generate the delivery estimate display for the label using dates instead of days
 	 *
 	 * @since 1.0.0
+	 *
 	 * @param int $days_from_setting the minimum shipping estimate
 	 * @param int $days_to_setting the maximum shipping estimate
 	 * @param string $label the label we're in the process of updating
@@ -300,13 +218,13 @@ class WC_Shipping_Estimate {
 	private function generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label ) {
 
 		// Filter the "dates" value so it can be changed
-		$days_from = apply_filters( 'wc_shipping_estimate_dates_from', date_i18n( 'F j', strtotime( $days_from_setting . 'days' ) )  );
-		$days_to = apply_filters( 'wc_shipping_estimate_dates_to', date_i18n( 'F j', strtotime( $days_to_setting . 'days' ) ) );
+		$days_from = apply_filters( 'wc_shipping_estimate_dates_from', date_i18n( 'F j', strtotime( $days_from_setting . 'days' ) ) );
+		$days_to   = apply_filters( 'wc_shipping_estimate_dates_to', date_i18n( 'F j', strtotime( $days_to_setting . 'days' ) ) );
 
 		// Determine how we should format the estimate
 		if ( ! empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
 
-			// Sanity check: we can't show something like "Delivery estimate: 5 - 2 days" ;)
+			// Sanity check: we can't show something like "Estimated delivery: January 5 to January 1" ;)
 			if ( $days_to_setting <= $days_from_setting ) {
 
 				/* translators: %s (date) is latest shipping estimate */
@@ -316,7 +234,6 @@ class WC_Shipping_Estimate {
 
 				/* translators: %1$s (date) is earliest shipping estimate, %2$s (date) is latest shipping estimate */
 				$label .= sprintf( __( 'Estimated delivery: %1$s - %2$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to );
-
 			}
 
 		} elseif ( empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
@@ -328,7 +245,6 @@ class WC_Shipping_Estimate {
 
 			/* translators: %s (date) is earliest shipping estimate */
 			$label .= sprintf( __( 'Delivery on or after %s', 'woocommerce-shipping-estimate' ), $days_from );
-
 		}
 
 		return $label;
@@ -339,7 +255,8 @@ class WC_Shipping_Estimate {
 	 * Gets the label for the shipping estimate; defaults to "day(s)"
 	 *
 	 * @since 1.0.0
-	 * @param int $days_to the maximum shipping estimate
+	 *
+	 * @param int $days the maximum shipping estimate
 	 * @return string $estimate_label the label for the estimate
 	 */
 	private function get_estimate_label( $days ) {
@@ -353,15 +270,16 @@ class WC_Shipping_Estimate {
 	 * Add format selector for estimates
 	 *
 	 * @since 1.0.0
+	 *
 	 * @param array $settings the WooCommerce shipping settings
 	 * @return array $updated_settings the updated settings with ours added
 	 */
 	public function add_format_selector( $settings ) {
 
 		$new_settings = array(
-		
+
 			array( 'title' => __( 'Shipping Estimates', 'woocommerce-shipping-estimate' ), 'type' => 'title', 'id' => 'wc_shipping_estimates' ),
-			
+
 			array(
 				'id'       => 'wc_shipping_estimate_format',
 				'type'     => 'radio',
@@ -374,7 +292,7 @@ class WC_Shipping_Estimate {
 				'desc'     => __( 'This changes the way estimates are shown to customers.', 'woocommerce-shipping-estimate' ),
 				'desc_tip' => true,
 			),
-			
+
 			array( 'type' => 'sectionend', 'id' => 'wc_shipping_estimates' ),
 		);
 
@@ -385,7 +303,7 @@ class WC_Shipping_Estimate {
 
 	/**
 	 * Create WC Shipping Estimate settings table
-	 * thanks WC core - modeled off "Shipping Methods" table
+	 * thanks WC core! modeled off "Shipping Methods" table
 	 *
 	 * @since 1.0.0
 	 */
@@ -393,7 +311,7 @@ class WC_Shipping_Estimate {
 
 		// Get the estimates if they're saved already
 		$method_estimate_from = get_option( 'wc_shipping_method_estimate_from', array() );
-		$method_estimate_to = get_option( 'wc_shipping_method_estimate_to', array() );
+		$method_estimate_to   = get_option( 'wc_shipping_method_estimate_to', array() );
 
 		?>
 		<tr valign="top">
@@ -403,9 +321,9 @@ class WC_Shipping_Estimate {
 				<?php $zones = WC_Shipping_Zones::get_zones(); ?>
 				<?php if ( ! empty( $zones ) ) : ?>
 				<?php foreach ( $zones as $zone_id => $zone_data ) : ?>
-					<?php 
-						$zone = WC_Shipping_Zones::get_zone( $zone_id ); 
-						$zone_methods = $zone->get_shipping_methods(); 
+					<?php
+						$zone = WC_Shipping_Zones::get_zone( $zone_id );
+						$zone_methods = $zone->get_shipping_methods();
 						if ( ! empty( $zone_methods ) ) :
 					?>
 					<thead>
@@ -443,7 +361,7 @@ class WC_Shipping_Estimate {
 					<?php endif; ?>
 				<?php endforeach; ?>
 				<?php endif; ?>
-				
+
 				<?php $world_zone =  WC_Shipping_Zones::get_zone( 0 ); ?>
 				<?php $world_zone_methods = $world_zone->get_shipping_methods(); ?>
 				<?php if ( ! empty( $world_zone_methods ) ) : ?>
@@ -481,8 +399,8 @@ class WC_Shipping_Estimate {
 					<?php endforeach; ?>
 					</tbody>
 					<?php endif; ?>
-					<?php 
-						$methods = WC()->shipping->get_shipping_methods(); 
+					<?php
+						$methods = WC()->shipping->get_shipping_methods();
 						unset( $methods['flat_rate'], $methods['free_shipping'], $methods['local_pickup'] );
 						if ( ! empty( $methods ) ) :
 					?>
@@ -536,7 +454,6 @@ class WC_Shipping_Estimate {
 	 * @since 1.0.0
 	 */
 	public function process_method_estimate() {
-
 		global $current_section;
 
 		// Bail if we're not in the "Shipping Options" section
@@ -545,7 +462,7 @@ class WC_Shipping_Estimate {
 		}
 
 		$estimate_from = isset( $_POST['method_estimate_from'] ) ? $_POST['method_estimate_from'] : '';
-		$estimate_to   = isset( $_POST['method_estimate_to'] ) ? $_POST['method_estimate_to'] : '';
+		$estimate_to   = isset( $_POST['method_estimate_to'] )   ? $_POST['method_estimate_to']   : '';
 
 		$method_estimate_from = array();
 		$method_estimate_to   = array();
@@ -574,6 +491,94 @@ class WC_Shipping_Estimate {
 
 		update_option( 'wc_shipping_method_estimate_from', $method_estimate_from );
 		update_option( 'wc_shipping_method_estimate_to', $method_estimate_to );
+	}
+
+
+	/** Helper methods ***************************************/
+
+
+	/**
+	 * Main WC_Shipping_Estimate Instance, ensures only one instance is/can be loaded
+	 *
+	 * @since 1.0.0
+	 *
+	 * @see wc_shipping_estimate()
+	 * @return WC_Shipping_Estimate
+	 */
+	public static function instance() {
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
+		}
+		return self::$instance;
+	}
+
+
+	/**
+	 * Cloning instances is forbidden due to singleton pattern.
+	 *
+	 * @since 2.0.0
+	 */
+	public function __clone() {
+		/* translators: Placeholders: %s - plugin name */
+		_doing_it_wrong( __FUNCTION__, sprintf( esc_html__( 'You cannot clone instances of %s.', 'woocommerce-shipping-estimate' ), 'WooCommerce Shipping Estimates' ), '2.0.0' );
+	}
+
+
+	/**
+	 * Unserializing instances is forbidden due to singleton pattern.
+	 *
+	 * @since 2.0.0
+	 */
+	public function __wakeup() {
+		/* translators: Placeholders: %s - plugin name */
+		_doing_it_wrong( __FUNCTION__, sprintf( esc_html__( 'You cannot unserialize instances of %s.', 'woocommerce-shipping-estimate' ), 'WooCommerce Shipping Estimates' ), '2.0.0' );
+	}
+
+
+	/**
+	 * Adds plugin page links
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $links all plugin links
+	 * @return array $links all plugin links + our custom links (i.e., "Settings")
+	 */
+	public function add_plugin_links( $links ) {
+
+		$plugin_links = array(
+			'<a href="' . admin_url( 'admin.php?page=wc-settings&tab=shipping&section=options' ) . '">' . __( 'Configure', 'woocommerce-shipping-estimate' ) . '</a>',
+			'<a href="https://github.com/skyverge/woocommerce-shipping-estimate">GitHub</a>',
+		);
+		return array_merge( $plugin_links, $links );
+	}
+
+
+	/**
+	 * Load Translations
+	 *
+	 * @since 1.0.0
+	 */
+	public function load_translation() {
+		// localization
+		load_plugin_textdomain( 'woocommerce-shipping-estimate', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/languages' );
+	}
+
+
+	/**
+	 * Checks if WooCommerce is active
+	 *
+	 * @since 2.0.0
+	 * @return bool true if WooCommerce is active, false otherwise
+	 */
+	public static function is_woocommerce_active() {
+
+		$active_plugins = (array) get_option( 'active_plugins', array() );
+
+		if ( is_multisite() ) {
+			$active_plugins = array_merge( $active_plugins, get_site_option( 'active_sitewide_plugins', array() ) );
+		}
+
+		return in_array( 'woocommerce/woocommerce.php', $active_plugins ) || array_key_exists( 'woocommerce/woocommerce.php', $active_plugins );
 	}
 
 
@@ -609,7 +614,7 @@ class WC_Shipping_Estimate {
 	 * @param int $installed_version the currently installed version of the plugin
 	 */
 	private function upgrade( $version ) {
-	
+
 		if ( -1 === version_compare( $version, '2.0.0' ) ) {
 			// any version 2.0 upgrade methods
 		}
@@ -618,15 +623,17 @@ class WC_Shipping_Estimate {
 		update_option( 'wc_shipping_estimate_version', $version );
 	}
 
-} // end \WC_Shipping_Estimate class
+
+}
 
 
 /**
  * Returns the One True Instance of WC_Shipping_Estimate
  *
  * @since 1.0.0
- * @return WC_Shipping_Estimate
+ *
+ * @return \WC_Shipping_Estimate
  */
 function wc_shipping_estimate() {
-    return WC_Shipping_Estimate::instance();
+	return WC_Shipping_Estimate::instance();
 }

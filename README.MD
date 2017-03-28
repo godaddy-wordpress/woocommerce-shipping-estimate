@@ -24,6 +24,9 @@ We're happy to accept contributions! Feel free to add an issue or submit a PR :)
 
 ### Changelog
 
+**2017.03.28 - version 2.1.0**
+ * Misc: Added support for WooCommerce 3.0
+
 **2015.06.14 - version 2.0.0**
  * Feature: Methods within a shipping zone can have a unique estimate saved
  * Feature: Adds support for the [GitHub updater plugin](https://github.com/afragen/github-updater)
