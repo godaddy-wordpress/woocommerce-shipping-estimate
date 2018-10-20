@@ -1,6 +1,6 @@
 {
 	"name": "woocommerce-shipping-estimate",
-	"version": "2.1.0",
+	"version": "2.2.0",
 	"author": "SkyVerge",
 	"homepage": "http://skyverge.com",
 	"repository": {
@@ -14,16 +14,23 @@
 		"node": ">= 0.10.0"
 	},
 	"devDependencies": {
-		"grunt": "~0.4.5",
-		"grunt-contrib-clean": "~0.5.0",
-		"grunt-contrib-copy": "~0.5.0",
-		"grunt-newer": "~0.7.0",
-		"grunt-notify": "~0.3.0",
-		"grunt-wp-deploy": "~1.0.3",
-		"grunt-wp-i18n": "~0.4.5",
-		"load-grunt-tasks": "~0.6.0",
-		"time-grunt": "~0.4.0",
-		"underscore": "~1.6.0",
-		"underscore.string": "~2.3.3"
-	}
+		"grunt": "^1.0.3",
+		"grunt-contrib-clean": "~0.6.0",
+		"grunt-contrib-coffee": "^2.0.0",
+		"grunt-contrib-compress": "~1.3.0",
+		"grunt-contrib-copy": "~0.8.0",
+		"grunt-contrib-uglify": "^4.0.0",
+		"grunt-contrib-watch": "^1.1.0",
+		"grunt-exec": "~1.0.0",
+		"grunt-newer": "~1.1.1",
+		"grunt-notify": "~0.4.1",
+		"grunt-sass": "^2.0.0",
+		"grunt-wp-i18n": "^1.0.2",
+		"load-grunt-tasks": "^4.0.0",
+		"sake": "github:skyverge/sake",
+		"time-grunt": "~1.2.1",
+		"underscore": "~1.8.3",
+		"underscore.string": "~3.1.1"
+	},
+	"dependencies": {}
 }
