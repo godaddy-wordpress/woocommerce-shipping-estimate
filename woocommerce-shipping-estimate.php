@@ -128,7 +128,11 @@ class WC_Shipping_Estimate {
 	public function render_estimate_label( $label, $method ) {
 
 		// get the instance ID in case this is a zone method
-		$instance_id = (int) substr( $method->id, strpos( $method->id, ':' ) + 1 );
+		if(isset($method->instance_id)){
+			$instance_id = $method->instance_id;
+		} else {
+			$instance_id = (int) substr( $method->id, strpos( $method->id, ':' ) + 1 );
+		}
 		$method_id   = $instance_id ? (int) $instance_id : $method->method_id;
 
 		$method_estimate_from = get_option( 'wc_shipping_method_estimate_from', array() );
