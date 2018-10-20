@@ -1,0 +1,178 @@
+# Copyright (C) 2017 SkyVerge
+# This file is distributed under the GNU General Public License v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Shipping Estimates 2.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/skyverge/woocommerce-shipping-"
+"estimate/issues\n"
+"POT-Creation-Date: 2015-10-13 21:32:53+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-11-19 01:30+0700\n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.0.4\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de_DE\n"
+
+#. translators: %1$s and %2$s are <strong> tags. %3$s and %4$s are <a> tags
+#: woocommerce-shipping-estimate.php:44
+msgid ""
+"%1$sWooCommerce Shipping Estimates is inactive.%2$s This plugin requires "
+"WooCommerce 2.6 or newer. Please %3$supdate WooCommerce to version 2.6 or "
+"newer%4$s"
+msgstr ""
+"%1$sWooCommerce Shipping Estimates ist inaktiv.%2$s Dieses Plugin benötigt "
+"WooCommerce 2.6 oder höher. Bitte %3$sWooCommerce auf Version 2.6 oder "
+"neuer updaten%4$s"
+
+#. translators: %1$s (number) is maximum shipping estimate, %2$s is label
+#. (day(s))
+#: woocommerce-shipping-estimate.php:185 woocommerce-shipping-estimate.php:196
+msgid "Delivery estimate: up to %1$s %2$s"
+msgstr "Geschätzter Lieferzeit: Bis zu %1$s %2$s"
+
+#. translators: %1$s (number) is minimum shipping estimate, %2$s (number) is
+#. maximum shipping estimate, %$3s is label (day(s))
+#: woocommerce-shipping-estimate.php:190
+msgid "Delivery estimate: %1$s - %2$s %3$s"
+msgstr "Geschätzter Lieferzeit: %1$s - %2$s %3$s"
+
+#. translators: %1$s (number) is minimum shipping estimate, %2$s is label
+#. (day(s))
+#: woocommerce-shipping-estimate.php:201
+msgid "Delivery estimate: at least %1$s %2$s"
+msgstr "Geschätzter Lieferzeit: Bis zu %1$s %2$s"
+
+#. translators: %s (date) is latest shipping estimate
+#: woocommerce-shipping-estimate.php:231 woocommerce-shipping-estimate.php:242
+msgid "Estimated delivery by %s"
+msgstr "Geschätzter Liefertermin: Bis zum %s"
+
+#. translators: %1$s (date) is earliest shipping estimate, %2$s (date) is
+#. latest shipping estimate
+#: woocommerce-shipping-estimate.php:236
+msgid "Estimated delivery: %1$s - %2$s"
+msgstr "Geschätzter Liefertermin: %1$s - %2$s"
+
+#. translators: %s (date) is earliest shipping estimate
+#: woocommerce-shipping-estimate.php:247
+msgid "Delivery on or after %s"
+msgstr "Lieferung am oder bis zum %s"
+
+#: woocommerce-shipping-estimate.php:264
+msgid "day"
+msgid_plural "days"
+msgstr[0] "Tag"
+msgstr[1] "Tage"
+
+#: woocommerce-shipping-estimate.php:281
+msgid "Shipping Estimates"
+msgstr "Lieferzeitschätzung"
+
+#: woocommerce-shipping-estimate.php:286
+msgid "Shipping Estimate Format"
+msgstr "Format der Lieferzeitschätzung"
+
+#: woocommerce-shipping-estimate.php:288
+msgid "Display estimate in days"
+msgstr "Zeige Schätzung in Tage"
+
+#: woocommerce-shipping-estimate.php:289
+msgid "Display estimate using dates"
+msgstr "Zeige Schätzung mit Datum"
+
+#: woocommerce-shipping-estimate.php:292
+msgid "This changes the way estimates are shown to customers."
+msgstr "Dies ändert die Art wie die Schätzung den Kunden dargestellt wird."
+
+#: woocommerce-shipping-estimate.php:318
+msgid "Estimate Ranges"
+msgstr "Lieferzeit Bereich"
+
+#: woocommerce-shipping-estimate.php:333 woocommerce-shipping-estimate.php:373
+msgid "Methods"
+msgstr "Versandarten"
+
+#: woocommerce-shipping-estimate.php:337 woocommerce-shipping-estimate.php:377
+#: woocommerce-shipping-estimate.php:412
+msgid "Name"
+msgstr "Name"
+
+#: woocommerce-shipping-estimate.php:338 woocommerce-shipping-estimate.php:378
+msgid "Type"
+msgstr "Versandart"
+
+#: woocommerce-shipping-estimate.php:339 woocommerce-shipping-estimate.php:379
+#: woocommerce-shipping-estimate.php:414
+msgid "From (days)"
+msgstr "Von (Tage)"
+
+#: woocommerce-shipping-estimate.php:339 woocommerce-shipping-estimate.php:379
+#: woocommerce-shipping-estimate.php:414
+msgid "The earliest estimated arrival. Can be left blank."
+msgstr "Die früheste Ankunftszeit. Kann leer gelassen werden."
+
+#: woocommerce-shipping-estimate.php:340 woocommerce-shipping-estimate.php:380
+#: woocommerce-shipping-estimate.php:415
+msgid "To (days)"
+msgstr "Bis (Tage)"
+
+#: woocommerce-shipping-estimate.php:340 woocommerce-shipping-estimate.php:380
+#: woocommerce-shipping-estimate.php:415
+msgid "The latest estimated arrival. Can be left blank."
+msgstr "Die späteste Ankunftszeit. Kann leer gelassen werden."
+
+#: woocommerce-shipping-estimate.php:371
+msgid "Rest of the World"
+msgstr "Übrige Welt"
+
+#: woocommerce-shipping-estimate.php:409
+msgid "Other Methods"
+msgstr "Andere Versandarten"
+
+#: woocommerce-shipping-estimate.php:413
+msgid "ID"
+msgstr "ID"
+
+#: woocommerce-shipping-estimate.php:441
+msgid "Set the estimated range of days required for each method."
+msgstr "Der geschätzte Bereich der Tage ist für jede Versandart notwendig."
+
+#. translators: Placeholders: %s - plugin name
+#: woocommerce-shipping-estimate.php:523
+msgid "You cannot clone instances of %s."
+msgstr "Du kannst die Instanz %s nicht klonen."
+
+#. translators: Placeholders: %s - plugin name
+#: woocommerce-shipping-estimate.php:534
+msgid "You cannot unserialize instances of %s."
+msgstr "Du kannst die Instanz %s nicht deserialisieren."
+
+#: woocommerce-shipping-estimate.php:549
+msgid "Configure"
+msgstr "Konfigurieren"
+
+#. Plugin Name of the plugin/theme
+msgid "WooCommerce Shipping Estimates"
+msgstr "WooCommerce Lieferzeitschätzungen"
+
+#. Plugin URI of the plugin/theme
+msgid "http://skyverge.com/product/woocommerce-shipping-estimate/"
+msgstr "http://skyverge.com/product/woocommerce-shipping-estimate/"
+
+#. Description of the plugin/theme
+msgid ""
+"Displays a shipping estimate for each method on the cart / checkout page"
+msgstr ""
+"Zeigt eine Lieferzeitschätzung für jede Versandart auf der Warenkorb / "
+"Kasse Seite"
+
+#. Author of the plugin/theme
+msgid "SkyVerge"
+msgstr "SkyVerge"
+
+#. Author URI of the plugin/theme
+msgid "http://www.skyverge.com/"
+msgstr "http://www.skyverge.com/"
