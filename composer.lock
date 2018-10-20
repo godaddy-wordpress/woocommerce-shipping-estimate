@@ -1,0 +1,98 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "a68c24bdf1e4b7465cfe222e10737dbb",
+    "packages": [
+        {
+            "name": "skyverge/wc-plugin-updater",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/skyverge/wc-plugin-updater.git",
+                "reference": "39b39ba8a5c69239908a99c79c2cbc877c8450e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/skyverge/wc-plugin-updater/zipball/39b39ba8a5c69239908a99c79c2cbc877c8450e4",
+                "reference": "39b39ba8a5c69239908a99c79c2cbc877c8450e4",
+                "shasum": ""
+            },
+            "type": "library",
+            "license": [
+                "GPL 3.0"
+            ],
+            "description": "WooCommerce Plugin Updater",
+            "support": {
+                "source": "https://github.com/skyverge/wc-plugin-updater/tree/master",
+                "issues": "https://github.com/skyverge/wc-plugin-updater/issues"
+            },
+            "time": "2018-01-25T03:47:40+00:00"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "mnsami/composer-custom-directory-installer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mnsami/composer-custom-directory-installer.git",
+                "reference": "1ccaf2da421dd9f6bcec4631c38e69e67677125f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mnsami/composer-custom-directory-installer/zipball/1ccaf2da421dd9f6bcec4631c38e69e67677125f",
+                "reference": "1ccaf2da421dd9f6bcec4631c38e69e67677125f",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "php": ">=5.3"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": [
+                    "Composer\\CustomDirectoryInstaller\\LibraryPlugin",
+                    "Composer\\CustomDirectoryInstaller\\PearPlugin",
+                    "Composer\\CustomDirectoryInstaller\\PluginPlugin"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Composer\\CustomDirectoryInstaller": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mina Nabil Sami",
+                    "email": "mina.nsami@gmail.com"
+                }
+            ],
+            "description": "A composer plugin, to help install packages of different types in custom paths.",
+            "keywords": [
+                "composer",
+                "composer-installer",
+                "composer-plugin"
+            ],
+            "time": "2017-08-14T19:50:19+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "skyverge/wc-plugin-updater": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
