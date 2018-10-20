@@ -3,10 +3,9 @@ Contributors: skyverge, beka.rice
 Tags: woocommerce, shipping, shipping time, shipping estimate, woocommerce shipping
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@skyverge.com&item_name=Donation+for+WooCommerce+Shipping+Estimates
 Requires at least: 4.4
-Tested up to: 4.7.3
-Requires WooCommerce at least: 2.6.0
-Tested WooCommerce up to: 3.0.0
-Stable Tag: 2.1.0
+Tested up to: 5.0
+Requires PHP: 5.4
+Stable Tag: 2.2.0-dev.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -14,7 +13,7 @@ Displays shipping time estimates for WooCommerce shipping methods on the cart an
 
 == Description ==
 
-> **Requires: WooCommerce 2.6+** or newer
+> **Requires: WooCommerce 2.6.14** or newer
 
 This plugin displays an estimated number of days or estimated delivery dates for any shipping method on the cart and checkout pages. This can let you add some text to let your customers know when an order will arrive.
 
