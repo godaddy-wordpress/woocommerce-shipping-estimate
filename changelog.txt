@@ -1,4 +1,4 @@
-*** WooCommerce Memberships Directory Shortcode Changelog ***
+*** WooCommerce Shipping Estimate Changelog ***
 
 = 2018.11.09 - version 2.2.0 =
  * Misc - Add support for WP 5.0 and WC 3.5
