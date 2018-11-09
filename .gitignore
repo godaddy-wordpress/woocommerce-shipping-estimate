@@ -15,3 +15,5 @@ npm-debug.log
 
 # PhpStorm
 .idea/
+vendor/
+lib/
