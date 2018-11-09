@@ -99,4 +99,4 @@ Please do! Join in on our [GitHub repository](https://github.com/skyverge/woocom
 
 == Changelog ==
 
-[See changelog](https://github.com/skyverge/woocommerce-shipping-estimate/changelog.txt)
+[See changelog](https://github.com/skyverge/woocommerce-shipping-estimate/blob/master/changelog.txt)

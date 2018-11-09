@@ -6,9 +6,9 @@ You can also display date ranges instead (which are calculated from the days you
 
 ### Notes
 
-To use version 2.0+, you must be using **WooCommerce 2.6** or newer. This adds support for shipping methods within a zone.
+To use version 2.0+, you must be using **WooCommerce 2.6.14** or newer. This adds support for shipping methods within a zone.
 
-Want just the plugin files to install? [Check out the releases](https://github.com/skyverge/woocommerce-shipping-estimate/releases) -- there should be an installable .zip attached to each release.
+Ready to install? [Check out the plugin here](http://skyverge.com/product/woocommerce-shipping-estimate/) -- you'll receive an updater key to get automated updates.
 
 This plugin supports any individual WooCommerce shipping method and can let the user set the estimated delivery time or range in days for each. It **does not** support combined methods like Table Rate Shipping. We do not plan to add this.
 
@@ -24,24 +24,7 @@ We're happy to accept contributions! Feel free to add an issue or submit a PR :)
 
 ### Changelog
 
-**2017.03.28 - version 2.1.0**
- * Misc: Added support for WooCommerce 3.0
-
-**2015.06.14 - version 2.0.0**
- * Feature: Methods within a shipping zone can have a unique estimate saved
- * Feature: Adds support for the [GitHub updater plugin](https://github.com/afragen/github-updater)
- * Misc: Added support for WooCommerce 2.6
- * Misc: Removed support for WooCommerce versions older than 2.6
-
-**2015.12.14 - version 1.0.2**
- * Fix: remove escaping due to WooCommerce core change in label handling
-
-**2015.10.15 - version 1.0.1**
- * Misc: cleaned up escaping
- * Misc: folder & text domain naming consistency
-
-**2015.10.13 - version 1.0.0**
- * Initial Release
+[See full changelog](https://github.com/skyverge/woocommerce-shipping-estimate/blob/master/changelog.txt)
 
 ### Helpful Links
 
