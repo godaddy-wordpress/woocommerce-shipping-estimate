@@ -4,32 +4,38 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a68c24bdf1e4b7465cfe222e10737dbb",
+    "content-hash": "8e2e01ab07100b08a58dfbfb687aadc5",
     "packages": [
         {
             "name": "skyverge/wc-plugin-updater",
-            "version": "dev-master",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/skyverge/wc-plugin-updater.git",
-                "reference": "39b39ba8a5c69239908a99c79c2cbc877c8450e4"
+                "reference": "892fd8d95656c10f36dde0fdc62e465fabcd60da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/skyverge/wc-plugin-updater/zipball/39b39ba8a5c69239908a99c79c2cbc877c8450e4",
-                "reference": "39b39ba8a5c69239908a99c79c2cbc877c8450e4",
+                "url": "https://api.github.com/repos/skyverge/wc-plugin-updater/zipball/892fd8d95656c10f36dde0fdc62e465fabcd60da",
+                "reference": "892fd8d95656c10f36dde0fdc62e465fabcd60da",
                 "shasum": ""
             },
             "type": "library",
             "license": [
                 "GPL 3.0"
             ],
+            "authors": [
+                {
+                    "name": "SkyVerge",
+                    "homepage": "https://skyverge.com"
+                }
+            ],
             "description": "WooCommerce Plugin Updater",
             "support": {
                 "source": "https://github.com/skyverge/wc-plugin-updater/tree/master",
                 "issues": "https://github.com/skyverge/wc-plugin-updater/issues"
             },
-            "time": "2018-01-25T03:47:40+00:00"
+            "time": "2018-10-26T00:09:49+00:00"
         }
     ],
     "packages-dev": [
@@ -88,9 +94,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "skyverge/wc-plugin-updater": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

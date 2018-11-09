@@ -1,5 +1,14 @@
 module.exports = {
-	deploy: false,
+	deploy: {
+		type: 'local'
+	},
 	framework: false,
-	multiPluginRepo: false
+	multiPluginRepo: false,
+	paths: {
+		src: '.',
+		exclude: [
+			'vendor',
+			'build'
+		]
+	}
 }
