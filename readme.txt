@@ -99,21 +99,4 @@ Please do! Join in on our [GitHub repository](https://github.com/skyverge/woocom
 
 == Changelog ==
 
-= 2017.03.28 - version 2.1.0 =
- * Misc: Added support for WooCommerce 3.0
-
-= 2016.06.14 - version 2.0.0 =
- * Feature: Estimates can be set on a per-zone and per-method basis
- * Feature: Adds support for the [GitHub updater plugin](https://github.com/afragen/github-updater)
- * Misc: Added support for WooCommerce 2.6
- * Misc: Removed support for WooCommerce versions older than 2.6
-
-= 2015.12.14 - version 1.0.2 =
- * Fix: remove escaping due to WooCommerce core change in label handling
-
-= 2015.10.15 - version 1.0.1 =
- * Misc: cleaned up escaping
- * Misc: folder & text domain naming consistency
-
-= 2015.10.13 - version 1.0.0 =
- * Initial Release
+[See changelog](https://github.com/skyverge/woocommerce-shipping-estimate/changelog.txt)

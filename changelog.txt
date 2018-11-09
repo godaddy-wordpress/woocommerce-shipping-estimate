@@ -1,0 +1,25 @@
+*** WooCommerce Memberships Directory Shortcode Changelog ***
+
+= 2018.nn.nn - version 2.2.0-dev.1 =
+ * Misc - Add support for WP 5.0 and WC 3.5
+ * Misc - Require PHP 5.4
+ * Localization - Add German translation, props [Daniel Jay](https://github.com/svatynepi)
+
+= 2017.03.28 - version 2.1.0 =
+ * Misc: Added support for WooCommerce 3.0
+
+= 2016.06.14 - version 2.0.0 =
+ * Feature: Estimates can be set on a per-zone and per-method basis
+ * Feature: Adds support for the [GitHub updater plugin](https://github.com/afragen/github-updater)
+ * Misc: Added support for WooCommerce 2.6
+ * Misc: Removed support for WooCommerce versions older than 2.6
+
+= 2015.12.14 - version 1.0.2 =
+ * Fix: remove escaping due to WooCommerce core change in label handling
+
+= 2015.10.15 - version 1.0.1 =
+ * Misc: cleaned up escaping
+ * Misc: folder & text domain naming consistency
+
+= 2015.10.13 - version 1.0.0 =
+ * Initial Release
