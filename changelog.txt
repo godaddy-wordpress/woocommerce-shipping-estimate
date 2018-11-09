@@ -1,6 +1,6 @@
 *** WooCommerce Memberships Directory Shortcode Changelog ***
 
-= 2018.nn.nn - version 2.2.0-dev.1 =
+= 2018.11.09 - version 2.2.0 =
  * Misc - Add support for WP 5.0 and WC 3.5
  * Misc - Require PHP 5.4
  * Localization - Add German translation, props [Daniel Jay](https://github.com/svatynepi)

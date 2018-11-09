@@ -42,7 +42,7 @@ defined( 'ABSPATH' ) or exit;
 class Plugin {
 
 
-	const VERSION = '2.2.0-dev.1';
+	const VERSION = '2.2.0';
 
 	/** @var Plugin single instance of this plugin */
 	protected static $instance;
@@ -90,7 +90,7 @@ class Plugin {
 	/**
 	 * Loads plugin files.
 	 *
-	 * @since 2.2.0-dev.1
+	 * @since 2.2.0
 	 */
 	public function includes() {
 
@@ -568,7 +568,7 @@ class Plugin {
 	/**
 	 * Show row meta on the plugin screen.
 	 *
-	 * @since 2.2.0-dev.1
+	 * @since 2.2.0
 	 *
 	 * @param array $links plugin row meta
 	 * @param string $file plugin base file

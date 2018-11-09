@@ -1,151 +1,163 @@
-# Copyright (C) 2017 SkyVerge
+# Copyright (C) 2018 SkyVerge
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Shipping Estimates 2.1.0\n"
+"Project-Id-Version: WooCommerce Shipping Estimates 2.2.0\n"
 "Report-Msgid-Bugs-To: "
-"https://github.com/skyverge/woocommerce-shipping-estimate/issues\n"
-"POT-Creation-Date: 2015-10-13 21:32:53+00:00\n"
+"https://woocommerce.com/my-account/marketplace-ticket-form/\n"
+"POT-Creation-Date: 2018-11-09 07:31:50+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: woocommerce-shipping-estimate.php:44
-#. translators: %1$s and %2$s are <strong> tags. %3$s and %4$s are <a> tags
-msgid ""
-"%1$sWooCommerce Shipping Estimates is inactive.%2$s This plugin requires "
-"WooCommerce 2.6 or newer. Please %3$supdate WooCommerce to version 2.6 or "
-"newer%4$s"
-msgstr ""
-
-#: woocommerce-shipping-estimate.php:185 woocommerce-shipping-estimate.php:196
+#: class-wc-shipping-estimate.php:175 class-wc-shipping-estimate.php:186
 #. translators: %1$s (number) is maximum shipping estimate, %2$s is label
 #. (day(s))
 msgid "Delivery estimate: up to %1$s %2$s"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:190
+#: class-wc-shipping-estimate.php:180
 #. translators: %1$s (number) is minimum shipping estimate, %2$s (number) is
 #. maximum shipping estimate, %$3s is label (day(s))
 msgid "Delivery estimate: %1$s - %2$s %3$s"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:201
+#: class-wc-shipping-estimate.php:191
 #. translators: %1$s (number) is minimum shipping estimate, %2$s is label
 #. (day(s))
 msgid "Delivery estimate: at least %1$s %2$s"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:231 woocommerce-shipping-estimate.php:242
+#: class-wc-shipping-estimate.php:221 class-wc-shipping-estimate.php:232
 #. translators: %s (date) is latest shipping estimate
 msgid "Estimated delivery by %s"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:236
+#: class-wc-shipping-estimate.php:226
 #. translators: %1$s (date) is earliest shipping estimate, %2$s (date) is
 #. latest shipping estimate
 msgid "Estimated delivery: %1$s - %2$s"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:247
+#: class-wc-shipping-estimate.php:237
 #. translators: %s (date) is earliest shipping estimate
 msgid "Delivery on or after %s"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:264
+#: class-wc-shipping-estimate.php:254
 msgid "day"
 msgid_plural "days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: woocommerce-shipping-estimate.php:281
+#: class-wc-shipping-estimate.php:271
 msgid "Shipping Estimates"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:286
+#: class-wc-shipping-estimate.php:278
 msgid "Shipping Estimate Format"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:288
+#: class-wc-shipping-estimate.php:280
 msgid "Display estimate in days"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:289
+#: class-wc-shipping-estimate.php:281
 msgid "Display estimate using dates"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:292
+#: class-wc-shipping-estimate.php:284
 msgid "This changes the way estimates are shown to customers."
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:318
+#: class-wc-shipping-estimate.php:312
 msgid "Estimate Ranges"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:333 woocommerce-shipping-estimate.php:373
+#: class-wc-shipping-estimate.php:327 class-wc-shipping-estimate.php:367
 msgid "Methods"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:337 woocommerce-shipping-estimate.php:377
-#: woocommerce-shipping-estimate.php:412
+#: class-wc-shipping-estimate.php:331 class-wc-shipping-estimate.php:371
+#: class-wc-shipping-estimate.php:406
 msgid "Name"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:338 woocommerce-shipping-estimate.php:378
+#: class-wc-shipping-estimate.php:332 class-wc-shipping-estimate.php:372
 msgid "Type"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:339 woocommerce-shipping-estimate.php:379
-#: woocommerce-shipping-estimate.php:414
+#: class-wc-shipping-estimate.php:333 class-wc-shipping-estimate.php:373
+#: class-wc-shipping-estimate.php:408
 msgid "From (days)"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:339 woocommerce-shipping-estimate.php:379
-#: woocommerce-shipping-estimate.php:414
+#: class-wc-shipping-estimate.php:333 class-wc-shipping-estimate.php:373
+#: class-wc-shipping-estimate.php:408
 msgid "The earliest estimated arrival. Can be left blank."
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:340 woocommerce-shipping-estimate.php:380
-#: woocommerce-shipping-estimate.php:415
+#: class-wc-shipping-estimate.php:334 class-wc-shipping-estimate.php:374
+#: class-wc-shipping-estimate.php:409
 msgid "To (days)"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:340 woocommerce-shipping-estimate.php:380
-#: woocommerce-shipping-estimate.php:415
+#: class-wc-shipping-estimate.php:334 class-wc-shipping-estimate.php:374
+#: class-wc-shipping-estimate.php:409
 msgid "The latest estimated arrival. Can be left blank."
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:371
+#: class-wc-shipping-estimate.php:365
 msgid "Rest of the World"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:409
+#: class-wc-shipping-estimate.php:403
 msgid "Other Methods"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:413
+#: class-wc-shipping-estimate.php:407
 msgid "ID"
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:441
+#: class-wc-shipping-estimate.php:435
 msgid "Set the estimated range of days required for each method."
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:523
+#: class-wc-shipping-estimate.php:520
 #. translators: Placeholders: %s - plugin name
 msgid "You cannot clone instances of %s."
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:534
+#: class-wc-shipping-estimate.php:531
 #. translators: Placeholders: %s - plugin name
 msgid "You cannot unserialize instances of %s."
 msgstr ""
 
-#: woocommerce-shipping-estimate.php:549
+#: class-wc-shipping-estimate.php:557
+msgid "License"
+msgstr ""
+
+#: class-wc-shipping-estimate.php:557
+msgid "Get updates"
+msgstr ""
+
+#: class-wc-shipping-estimate.php:560
 msgid "Configure"
+msgstr ""
+
+#: class-wc-shipping-estimate.php:580
+msgid "Report bugs on GitHub"
+msgstr ""
+
+#: class-wc-shipping-estimate.php:580
+msgid "Report bug"
+msgstr ""
+
+#: class-wc-shipping-estimate.php:606
+msgid "WooCommerce Shipping Estimate"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
