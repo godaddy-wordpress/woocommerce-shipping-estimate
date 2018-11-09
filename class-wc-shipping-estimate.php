@@ -23,7 +23,7 @@
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
-namespace SkyVerge\WooCommerce\Shipping_Estimates;
+namespace SkyVerge\WooCommerce\ShippingEstimates;
 
 use SkyVerge\WooCommerce\PluginUpdater as Updater;
 
@@ -356,7 +356,7 @@ class Plugin {
 				<?php endforeach; ?>
 				<?php endif; ?>
 
-				<?php $world_zone =  \WC_Shipping_Zones::get_zone( 0 ); ?>
+				<?php $world_zone = \WC_Shipping_Zones::get_zone( 0 ); ?>
 				<?php $world_zone_methods = $world_zone->get_shipping_methods(); ?>
 				<?php if ( ! empty( $world_zone_methods ) ) : ?>
 					<thead>
@@ -698,13 +698,10 @@ class Plugin {
 	 * Perform any version-related changes.
 	 *
 	 * @since 1.0.0
+	 *
 	 * @param int $installed_version the currently installed version of the plugin
 	 */
 	private function upgrade( $version ) {
-
-		if ( -1 === version_compare( $version, '2.0.0' ) ) {
-			// any version 2.0 upgrade methods
-		}
 
 		// update the installed version option
 		update_option( 'wc_shipping_estimate_version', $version );

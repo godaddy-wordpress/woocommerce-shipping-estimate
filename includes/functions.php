@@ -26,12 +26,12 @@
 defined( 'ABSPATH' ) or exit;
 
 /**
- * Returns the One True Instance of \SkyVerge\WooCommerce\Shipping_Estimates\Plugin
+ * Returns the One True Instance of \SkyVerge\WooCommerce\ShippingEstimates\Plugin
  *
  * @since 1.0.0
  *
- * @return \SkyVerge\WooCommerce\Shipping_Estimates\Plugin
+ * @return \SkyVerge\WooCommerce\ShippingEstimates\Plugin
  */
 function wc_shipping_estimate() {
-	return \SkyVerge\WooCommerce\Shipping_Estimates\Plugin::instance();
+	return \SkyVerge\WooCommerce\ShippingEstimates\Plugin::instance();
 }
