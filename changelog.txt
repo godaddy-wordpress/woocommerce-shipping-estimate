@@ -1,5 +1,9 @@
 *** WooCommerce Shipping Estimate Changelog ***
 
+= 2018.nn.nn - version 2.2.1 =
+
+ * Localization - Add French translation, thanks to [Genesis Technologies](https://www.groupe-genesis.fr)
+
 = 2018.11.09 - version 2.2.0 =
  * Misc - Add support for WP 5.0 and WC 3.5
  * Misc - Require PHP 5.4
