@@ -31,24 +31,24 @@ msgstr ""
 #. (day(s))
 #: woocommerce-shipping-estimate.php:185 woocommerce-shipping-estimate.php:196
 msgid "Delivery estimate: up to %1$s %2$s"
-msgstr "Geschätzter Lieferzeit: Bis zu %1$s %2$s"
+msgstr "Geschätzte Lieferzeit: Bis zu %1$s %2$s"
 
 #. translators: %1$s (number) is minimum shipping estimate, %2$s (number) is
 #. maximum shipping estimate, %$3s is label (day(s))
 #: woocommerce-shipping-estimate.php:190
 msgid "Delivery estimate: %1$s - %2$s %3$s"
-msgstr "Geschätzter Lieferzeit: %1$s - %2$s %3$s"
+msgstr "Geschätzte Lieferzeit: %1$s - %2$s %3$s"
 
 #. translators: %1$s (number) is minimum shipping estimate, %2$s is label
 #. (day(s))
 #: woocommerce-shipping-estimate.php:201
 msgid "Delivery estimate: at least %1$s %2$s"
-msgstr "Geschätzter Lieferzeit: Bis zu %1$s %2$s"
+msgstr "Geschätzte Lieferzeit: Mindestens %1$s %2$s"
 
 #. translators: %s (date) is latest shipping estimate
 #: woocommerce-shipping-estimate.php:231 woocommerce-shipping-estimate.php:242
 msgid "Estimated delivery by %s"
-msgstr "Geschätzter Liefertermin: Bis zum %s"
+msgstr "Geschätzter Liefertermin: bis %s"
 
 #. translators: %1$s (date) is earliest shipping estimate, %2$s (date) is
 #. latest shipping estimate
@@ -59,7 +59,7 @@ msgstr "Geschätzter Liefertermin: %1$s - %2$s"
 #. translators: %s (date) is earliest shipping estimate
 #: woocommerce-shipping-estimate.php:247
 msgid "Delivery on or after %s"
-msgstr "Lieferung am oder bis zum %s"
+msgstr "Lieferung am oder nach %s"
 
 #: woocommerce-shipping-estimate.php:264
 msgid "day"
