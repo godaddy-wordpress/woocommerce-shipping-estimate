@@ -118,8 +118,9 @@ class Plugin {
 	public function render_estimate_label( $label, $method ) {
 
 		// get the instance ID in case this is a zone method
-		$instance_id = isset( $method->instance_id ) ? $method->instance_id : (int) substr( $method->id, strpos( $method->id, ':' ) + 1 );
-		$method_id   = $instance_id ? (int) $instance_id : $method->method_id;
+		$instance_id  = isset( $method->instance_id ) ? $method->instance_id : (int) substr( $method->id, strpos( $method->id, ':' ) + 1 );
+		$method_id    = $instance_id ? (int) $instance_id : $method->method_id;
+		$local_pickup = if(substr( $method->id, 0, 12 ) === "local_pickup");
 
 		$method_estimate_from = get_option( 'wc_shipping_method_estimate_from', [] );
 		$method_estimate_to   = get_option( 'wc_shipping_method_estimate_to', [] );
@@ -137,14 +138,14 @@ class Plugin {
 
 		// Should we display days or dates to the customer?
 		if ( 'dates' === get_option( 'wc_shipping_estimate_format', 'days' ) ) {
-			$label = $this->generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label );
+			$label = $this->generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label, $local_pickup );
 		} else {
-			$label = $this->generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label );
+			$label = $this->generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label, $local_pickup );
 		}
 
 		// label complete
 		$label .= '</small>';
-
+				
 		return $label;
 	}
 
@@ -157,9 +158,10 @@ class Plugin {
 	 * @param int $days_from_setting the minimum shipping estimate
 	 * @param int $days_to_setting the maximum shipping estimate
 	 * @param string $label the label we're in the process of updating
+	 * @param bool $local_pickup returns true if the shipping method is local_pickup
 	 * @return string $label the updated label with the delivery estimate
 	 */
-	private function generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label ) {
+	private function generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label, $method ) {
 
 		// Filter the "days" value in case you want to add a buffer or whatever ¯\_(ツ)_/¯
 		$days_from = apply_filters( 'wc_shipping_estimate_days_from', $days_from_setting );
@@ -168,29 +170,47 @@ class Plugin {
 		// Determine how we should format the estimate
 		if ( ! empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
 
-			// Sanity check: we can't show something like "Delivery estimate: 5 - 2 days" ;)
-			if ( $days_to_setting <= $days_from_setting ) {
-
-				/* translators: %1$s (number) is maximum shipping estimate, %2$s is label (day(s)) */
-				$label .= sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
-
-			} else {
-
-				/* translators: %1$s (number) is minimum shipping estimate, %2$s (number) is maximum shipping estimate, %$3s is label (day(s)) */
-				$label .= sprintf( __( 'Delivery estimate: %1$s - %2$s %3$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to, $this->get_estimate_label( $days_to ) );
-			}
+				// Sanity check: we can't show something like "Delivery estimate: 5 - 2 days" ;)
+				if ( $days_to_setting <= $days_from_setting ) {
+					// if NOT local_pickup
+					if(!$local_pickup){
+					/* translators: %1$s (number) is maximum shipping estimate, %2$s is label (day(s)) */
+					$label .= sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
+					} else {
+					/* translators: %1$s (number) is maximum shipping estimate, %2$s is label (day(s)) */
+					$label .= sprintf( __( 'Collection estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
+					}
+				} else {
+					// if NOT local_pickup
+					if(!$local_pickup){
+					/* translators: %1$s (number) is minimum shipping estimate, %2$s (number) is maximum shipping estimate, %$3s is label (day(s)) */
+					$label .= sprintf( __( 'Delivery estimate: %1$s - %2$s %3$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to, $this->get_estimate_label( $days_to ) );
+					} else {
+					/* translators: %1$s (number) is minimum shipping estimate, %2$s (number) is maximum shipping estimate, %$3s is label (day(s)) */
+					$label .= sprintf( __( 'Collection estimate: %1$s - %2$s %3$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to, $this->get_estimate_label( $days_to ) );
+					}
+				}
 
 		} elseif ( empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
-
-			/* translators: %1$s (number) is maximum shipping estimate, %2$s is label (day(s)) */
+			// if NOT local_pickup
+			if(!$local_pickup){				/* translators: %1$s (number) is maximum shipping estimate, %2$s is label (day(s)) */
 			$label .= sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
+			} else {
+			/* translators: %1$s (number) is maximum shipping estimate, %2$s is label (day(s)) */
+			$label .= sprintf( __( 'Collection estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
+			}
 
 		} elseif ( ! empty( $days_from_setting ) && empty( $days_to_setting ) ) {
-
+			// if NOT local_pickup
+			if(!$local_pickup){
 			/* translators: %1$s (number) is minimum shipping estimate, %2$s is label (day(s)) */
 			$label .= sprintf( __( 'Delivery estimate: at least %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_from, $this->get_estimate_label( $days_from ) );
+			} else {
+			/* translators: %1$s (number) is minimum shipping estimate, %2$s is label (day(s)) */
+			$label .= sprintf( __( 'Collection estimate: at least %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_from, $this->get_estimate_label( $days_from ) );
+			}
 		}
-
+		
 		return $label;
 	}
 
@@ -236,7 +256,7 @@ class Plugin {
 			/* translators: %s (date) is earliest shipping estimate */
 			$label .= sprintf( __( 'Delivery on or after %s', 'woocommerce-shipping-estimate' ), $days_from );
 		}
-
+		
 		return $label;
 	}
 
