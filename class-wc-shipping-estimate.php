@@ -166,6 +166,13 @@ class Plugin {
 		$days_from = apply_filters( 'wc_shipping_estimate_days_from', $days_from_setting );
 		$days_to   = apply_filters( 'wc_shipping_estimate_days_to', $days_to_setting );
 
+		// If shipping method is local_pickup set variable for label
+		if( substr( $method->id, 0, 12 ) === "local_pickup" ) {
+            $local_pickup = true;
+		} else {
+			$local_pickup = false;
+		};
+		
 		// Determine how we should format the estimate
 		if ( ! empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
 
@@ -213,12 +220,19 @@ class Plugin {
 		$days_from = apply_filters( 'wc_shipping_estimate_dates_from', date_i18n( 'F j', strtotime( $days_from_setting . 'days' ) ) );
 		$days_to   = apply_filters( 'wc_shipping_estimate_dates_to', date_i18n( 'F j', strtotime( $days_to_setting . 'days' ) ) );
 
+		// If shipping method is local_pickup set variable for label
+		if( substr( $method->id, 0, 12 ) === "local_pickup" ) {
+			$local_pickup = true;
+		} else {
+			$local_pickup = false;
+		};
+		
 		// Determine how we should format the estimate
 		if ( ! empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
 
 			// Sanity check: we can't show something like "Estimated delivery: January 5 to January 1" ;)
 			if ( $days_to_setting <= $days_from_setting ) {
-
+				
 				/* translators: %s (date) is latest shipping estimate */
 				$label .= sprintf( __( 'Estimated delivery by %s', 'woocommerce-shipping-estimate' ), $days_to );
 
