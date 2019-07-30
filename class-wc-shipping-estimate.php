@@ -180,23 +180,40 @@ class Plugin {
 			if ( $days_to_setting <= $days_from_setting ) {
 
 				/* translators: %1$s (number) is maximum shipping estimate, %2$s is label (day(s)) */
-				$label .= sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
+				if ($local_pickup === true){
+					$label .= sprintf( __( 'Collection estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
+				} else {
+					$label .= sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
+				}
 
 			} else {
 
 				/* translators: %1$s (number) is minimum shipping estimate, %2$s (number) is maximum shipping estimate, %$3s is label (day(s)) */
-				$label .= sprintf( __( 'Delivery estimate: %1$s - %2$s %3$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to, $this->get_estimate_label( $days_to ) );
+				if ($local_pickup === true){
+					$label .= sprintf( __( 'Collection estimate: %1$s - %2$s %3$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to, $this->get_estimate_label( $days_to ) );					
+				} else {
+					$label .= sprintf( __( 'Delivery estimate: %1$s - %2$s %3$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to, $this->get_estimate_label( $days_to ) );					
+				}
+
 			}
 
 		} elseif ( empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
 
 			/* translators: %1$s (number) is maximum shipping estimate, %2$s is label (day(s)) */
-			$label .= sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
+			if ($local_pickup === true){
+				$label .= sprintf( __( 'Collection estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
+			} else {
+				$label .= sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
+			}
 
 		} elseif ( ! empty( $days_from_setting ) && empty( $days_to_setting ) ) {
 
 			/* translators: %1$s (number) is minimum shipping estimate, %2$s is label (day(s)) */
-			$label .= sprintf( __( 'Delivery estimate: at least %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_from, $this->get_estimate_label( $days_from ) );
+			if ($local_pickup === true){
+				$label .= sprintf( __( 'Collection estimate: at least %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_from, $this->get_estimate_label( $days_from ) );
+			} else {
+				$label .= sprintf( __( 'Delivery estimate: at least %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_from, $this->get_estimate_label( $days_from ) );
+			}
 		}
 
 		return $label;
@@ -234,23 +251,39 @@ class Plugin {
 			if ( $days_to_setting <= $days_from_setting ) {
 				
 				/* translators: %s (date) is latest shipping estimate */
-				$label .= sprintf( __( 'Estimated delivery by %s', 'woocommerce-shipping-estimate' ), $days_to );
+				if ($local_pickup === true){
+					$label .= sprintf( __( 'Estimated collection by %s', 'woocommerce-shipping-estimate' ), $days_to );
+				} else {
+					$label .= sprintf( __( 'Estimated delivery by %s', 'woocommerce-shipping-estimate' ), $days_to );
+				}
 
 			} else {
 
 				/* translators: %1$s (date) is earliest shipping estimate, %2$s (date) is latest shipping estimate */
-				$label .= sprintf( __( 'Estimated delivery: %1$s - %2$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to );
+				if ($local_pickup === true){
+					$label .= sprintf( __( 'Estimated collection: %1$s - %2$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to );
+				} else {
+					$label .= sprintf( __( 'Estimated delivery: %1$s - %2$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to );
+				}
 			}
 
 		} elseif ( empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
 
 			/* translators: %s (date) is latest shipping estimate */
-			$label .= sprintf( __( 'Estimated delivery by %s', 'woocommerce-shipping-estimate' ), $days_to );
+			if ($local_pickup === true){
+				$label .= sprintf( __( 'Estimated collection by %s', 'woocommerce-shipping-estimate' ), $days_to );
+			} else {
+				$label .= sprintf( __( 'Estimated delivery by %s', 'woocommerce-shipping-estimate' ), $days_to );
+			}
 
 		} elseif ( ! empty( $days_from_setting ) && empty( $days_to_setting ) ) {
 
 			/* translators: %s (date) is earliest shipping estimate */
-			$label .= sprintf( __( 'Delivery on or after %s', 'woocommerce-shipping-estimate' ), $days_from );
+			if ($local_pickup === true){
+				$label .= sprintf( __( 'Collection on or after %s', 'woocommerce-shipping-estimate' ), $days_from );
+			} else {				
+				$label .= sprintf( __( 'Delivery on or after %s', 'woocommerce-shipping-estimate' ), $days_from );
+			}
 		}
 
 		return $label;
