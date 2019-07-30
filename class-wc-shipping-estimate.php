@@ -137,9 +137,9 @@ class Plugin {
 
 		// Should we display days or dates to the customer?
 		if ( 'dates' === get_option( 'wc_shipping_estimate_format', 'days' ) ) {
-			$label = $this->generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label );
+			$label = $this->generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label, $method );
 		} else {
-			$label = $this->generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label );
+			$label = $this->generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label, $method );
 		}
 
 		// label complete
@@ -156,10 +156,11 @@ class Plugin {
 	 *
 	 * @param int $days_from_setting the minimum shipping estimate
 	 * @param int $days_to_setting the maximum shipping estimate
+	 * @param \WC_Shipping_Rate $method the shipping method
 	 * @param string $label the label we're in the process of updating
 	 * @return string $label the updated label with the delivery estimate
 	 */
-	private function generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label ) {
+	private function generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label, $method ) {
 
 		// Filter the "days" value in case you want to add a buffer or whatever ¯\_(ツ)_/¯
 		$days_from = apply_filters( 'wc_shipping_estimate_days_from', $days_from_setting );
@@ -202,10 +203,11 @@ class Plugin {
 	 *
 	 * @param int $days_from_setting the minimum shipping estimate
 	 * @param int $days_to_setting the maximum shipping estimate
+	 * @param \WC_Shipping_Rate $method the shipping method
 	 * @param string $label the label we're in the process of updating
 	 * @return string $label the updated label with the delivery dates
 	 */
-	private function generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label ) {
+	private function generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label, $method ) {
 
 		// Filter the "dates" value so it can be changed
 		$days_from = apply_filters( 'wc_shipping_estimate_dates_from', date_i18n( 'F j', strtotime( $days_from_setting . 'days' ) ) );
