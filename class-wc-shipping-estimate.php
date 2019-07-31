@@ -19,7 +19,7 @@
  * @package   WC-Shipping-Estimate
  * @author    SkyVerge
  * @category  Admin
- * @copyright Copyright (c) 2015-2018, SkyVerge, Inc.
+ * @copyright Copyright (c) 2015-2019, SkyVerge, Inc.
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
@@ -42,7 +42,7 @@ defined( 'ABSPATH' ) or exit;
 class Plugin {
 
 
-	const VERSION = '2.2.0';
+	const VERSION = '2.2.1-dev.1';
 
 	/** @var Plugin single instance of this plugin */
 	protected static $instance;
@@ -137,9 +137,9 @@ class Plugin {
 
 		// Should we display days or dates to the customer?
 		if ( 'dates' === get_option( 'wc_shipping_estimate_format', 'days' ) ) {
-			$label = $this->generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label );
+			$label = $this->generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label, $method );
 		} else {
-			$label = $this->generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label );
+			$label = $this->generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label, $method );
 		}
 
 		// label complete
@@ -157,13 +157,18 @@ class Plugin {
 	 * @param int $days_from_setting the minimum shipping estimate
 	 * @param int $days_to_setting the maximum shipping estimate
 	 * @param string $label the label we're in the process of updating
+	 * @param \WC_Shipping_Rate $method the shipping method
 	 * @return string $label the updated label with the delivery estimate
 	 */
-	private function generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label ) {
+	private function generate_delivery_estimate_days( $days_from_setting, $days_to_setting, $label, $method ) {
 
 		// Filter the "days" value in case you want to add a buffer or whatever ¯\_(ツ)_/¯
 		$days_from = apply_filters( 'wc_shipping_estimate_days_from', $days_from_setting );
 		$days_to   = apply_filters( 'wc_shipping_estimate_days_to', $days_to_setting );
+
+		// we'll treat pickup differently than other methods for labeling
+		$local_pickup   = ( 'local_pickup' === substr( $method->id, 0, 12 ) );
+		$estimate_label = $this->get_estimate_label( $days_to );
 
 		// Determine how we should format the estimate
 		if ( ! empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
@@ -172,23 +177,26 @@ class Plugin {
 			if ( $days_to_setting <= $days_from_setting ) {
 
 				/* translators: %1$s (number) is maximum shipping estimate, %2$s is label (day(s)) */
-				$label .= sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
+				$label .= $local_pickup ? sprintf( __( 'Collection estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $estimate_label ) : sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $estimate_label );
 
 			} else {
 
 				/* translators: %1$s (number) is minimum shipping estimate, %2$s (number) is maximum shipping estimate, %$3s is label (day(s)) */
-				$label .= sprintf( __( 'Delivery estimate: %1$s - %2$s %3$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to, $this->get_estimate_label( $days_to ) );
+				$label .= $local_pickup ? sprintf( __( 'Collection estimate: %1$s - %2$s %3$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to, $estimate_label ) : sprintf( __( 'Delivery estimate: %1$s - %2$s %3$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to, $estimate_label );
 			}
 
 		} elseif ( empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
 
 			/* translators: %1$s (number) is maximum shipping estimate, %2$s is label (day(s)) */
-			$label .= sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $this->get_estimate_label( $days_to ) );
+			$label .= $local_pickup ? sprintf( __( 'Collection estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $estimate_label ) : sprintf( __( 'Delivery estimate: up to %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_to, $estimate_label );
 
 		} elseif ( ! empty( $days_from_setting ) && empty( $days_to_setting ) ) {
 
+			// change the label to be based on "days from" instead since it's the only value
+			$estimate_label = $this->get_estimate_label( $days_from );
+
 			/* translators: %1$s (number) is minimum shipping estimate, %2$s is label (day(s)) */
-			$label .= sprintf( __( 'Delivery estimate: at least %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_from, $this->get_estimate_label( $days_from ) );
+			$label .= $local_pickup ? sprintf( __( 'Collection estimate: at least %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_from, $estimate_label ) : sprintf( __( 'Delivery estimate: at least %1$s %2$s', 'woocommerce-shipping-estimate' ), $days_from, $estimate_label );
 		}
 
 		return $label;
@@ -202,14 +210,18 @@ class Plugin {
 	 *
 	 * @param int $days_from_setting the minimum shipping estimate
 	 * @param int $days_to_setting the maximum shipping estimate
+	 * @param \WC_Shipping_Rate $method the shipping method
 	 * @param string $label the label we're in the process of updating
 	 * @return string $label the updated label with the delivery dates
 	 */
-	private function generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label ) {
+	private function generate_delivery_estimate_dates( $days_from_setting, $days_to_setting, $label, $method ) {
 
 		// Filter the "dates" value so it can be changed
 		$days_from = apply_filters( 'wc_shipping_estimate_dates_from', date_i18n( 'F j', strtotime( $days_from_setting . 'days' ) ) );
 		$days_to   = apply_filters( 'wc_shipping_estimate_dates_to', date_i18n( 'F j', strtotime( $days_to_setting . 'days' ) ) );
+
+		// we'll treat pickup differently than other methods for labeling
+		$local_pickup = ( 'local_pickup' === substr( $method->id, 0, 12 ) );
 
 		// Determine how we should format the estimate
 		if ( ! empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
@@ -218,23 +230,23 @@ class Plugin {
 			if ( $days_to_setting <= $days_from_setting ) {
 
 				/* translators: %s (date) is latest shipping estimate */
-				$label .= sprintf( __( 'Estimated delivery by %s', 'woocommerce-shipping-estimate' ), $days_to );
+				$label .= $local_pickup ? sprintf( __( 'Estimated collection by %s', 'woocommerce-shipping-estimate' ), $days_to ) : sprintf( __( 'Estimated delivery by %s', 'woocommerce-shipping-estimate' ), $days_to );
 
 			} else {
 
 				/* translators: %1$s (date) is earliest shipping estimate, %2$s (date) is latest shipping estimate */
-				$label .= sprintf( __( 'Estimated delivery: %1$s - %2$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to );
+				$label .= $local_pickup ? sprintf( __( 'Estimated collection: %1$s - %2$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to ) : sprintf( __( 'Estimated delivery: %1$s - %2$s', 'woocommerce-shipping-estimate' ), $days_from, $days_to );
 			}
 
 		} elseif ( empty( $days_from_setting ) && ! empty( $days_to_setting ) ) {
 
 			/* translators: %s (date) is latest shipping estimate */
-			$label .= sprintf( __( 'Estimated delivery by %s', 'woocommerce-shipping-estimate' ), $days_to );
+			$label .= $local_pickup ? sprintf( __( 'Estimated collection by %s', 'woocommerce-shipping-estimate' ), $days_to ) : sprintf( __( 'Estimated delivery by %s', 'woocommerce-shipping-estimate' ), $days_to );
 
 		} elseif ( ! empty( $days_from_setting ) && empty( $days_to_setting ) ) {
 
 			/* translators: %s (date) is earliest shipping estimate */
-			$label .= sprintf( __( 'Delivery on or after %s', 'woocommerce-shipping-estimate' ), $days_from );
+			$label .= $local_pickup ? sprintf( __( 'Collection on or after %s', 'woocommerce-shipping-estimate' ), $days_from ) : sprintf( __( 'Delivery on or after %s', 'woocommerce-shipping-estimate' ), $days_from );
 		}
 
 		return $label;
@@ -699,7 +711,7 @@ class Plugin {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param int $installed_version the currently installed version of the plugin
+	 * @param int $version the currently installed version of the plugin
 	 */
 	private function upgrade( $version ) {
 
