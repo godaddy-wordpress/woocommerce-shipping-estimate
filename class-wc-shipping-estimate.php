@@ -19,7 +19,7 @@
  * @package   WC-Shipping-Estimate
  * @author    SkyVerge
  * @category  Admin
- * @copyright Copyright (c) 2015-2018, SkyVerge, Inc.
+ * @copyright Copyright (c) 2015-2019, SkyVerge, Inc.
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
@@ -711,7 +711,7 @@ class Plugin {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param int $installed_version the currently installed version of the plugin
+	 * @param int $version the currently installed version of the plugin
 	 */
 	private function upgrade( $version ) {
 
