@@ -16,9 +16,7 @@
  * versions in the future. If you wish to customize WooCommerce Shipping Estimate for your
  * needs please refer to http://skyverge.com/products/woocommerce-shipping-estimate/ for more information.
  *
- * @package   WC-Shipping-Estimate
  * @author    SkyVerge
- * @category  Admin
  * @copyright Copyright (c) 2015-2019, SkyVerge, Inc.
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
@@ -30,19 +28,14 @@ use SkyVerge\WooCommerce\PluginUpdater as Updater;
 defined( 'ABSPATH' ) or exit;
 
 /**
- * Plugin Description
+ * Plugin main class.
  *
- * Displays the estimated shipping length (e.g., 2-4 days) for each shipping method
- * on the cart and checkout pages.
- *
- * Can optionally use only a minimum or maximum shipping length (e.g., "up to 4 days" or "at least 2 days")
- * if only one value is set.
+ * @since 1.0.0
  */
-
 class Plugin {
 
 
-	const VERSION = '2.2.1-dev.1';
+	const VERSION = '2.3.0-dev.1';
 
 	/** @var Plugin single instance of this plugin */
 	protected static $instance;
@@ -514,7 +507,7 @@ class Plugin {
 	 */
 	public static function instance() {
 
-		if ( is_null( self::$instance ) ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 

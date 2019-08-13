@@ -5,7 +5,7 @@
  * Description: Displays a shipping estimate for each method on the cart / checkout page
  * Author: SkyVerge
  * Author URI: http://www.skyverge.com/
- * Version: 2.2.1-dev.1
+ * Version: 2.3.0-dev.1
  * Text Domain: woocommerce-shipping-estimate
  *
  * GitHub Plugin URI: Skyverge/woocommerce-shipping-estimate
@@ -22,8 +22,8 @@
  * @copyright Copyright (c) 2015-2019, SkyVerge, Inc.
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  *
- * WC requires at least: 2.6.14
- * WC tested up to: 3.5.1
+ * WC requires at least: 3.0.9
+ * WC tested up to: 3.7.0
  */
 
 defined( 'ABSPATH' ) or exit;
@@ -37,13 +37,13 @@ class WC_Shipping_Estimate_Loader {
 
 
 	/** minimum PHP version required by this plugin */
-	const MINIMUM_PHP_VERSION = '5.4.0';
+	const MINIMUM_PHP_VERSION = '5.6.0';
 
 	/** minimum WordPress version required by this plugin */
 	const MINIMUM_WP_VERSION = '4.4';
 
 	/** minimum WooCommerce version required by this plugin */
-	const MINIMUM_WC_VERSION = '2.6.14';
+	const MINIMUM_WC_VERSION = '3.0.9';
 
 	/** the plugin name, for displaying notices */
 	const PLUGIN_NAME = 'WooCommerce Shipping Estimate';
@@ -312,7 +312,7 @@ class WC_Shipping_Estimate_Loader {
 	 */
 	public static function instance() {
 
-		if ( is_null( self::$instance ) ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 
