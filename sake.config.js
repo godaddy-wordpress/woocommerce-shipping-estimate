@@ -1,4 +1,5 @@
 module.exports = {
+	clubhouse: 14029,
 	deploy: {
 		type: 'local'
 	},

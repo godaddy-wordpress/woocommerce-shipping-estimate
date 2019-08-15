@@ -6,7 +6,7 @@ You can also display date ranges instead (which are calculated from the days you
 
 ### Notes
 
-To use version 2.0+, you must be using **WooCommerce 2.6.14** or newer. This adds support for shipping methods within a zone.
+To use version 2.3+, you must be using **WooCommerce 3.0.9** or newer. This adds support for shipping methods within a zone.
 
 Ready to install? [Check out the plugin here](http://skyverge.com/product/woocommerce-shipping-estimate/) -- you'll receive an updater key to get automated updates.
 

@@ -16,9 +16,7 @@
  * versions in the future. If you wish to customize WooCommerce Memberships Directory Shortcode for your
  * needs please refer to http://skyverge.com/products/woocommerce-memberships-directory-shortcode/ for more information.
  *
- * @package   WC-Shipping-Estimate
  * @author    SkyVerge
- * @category  Admin
  * @copyright Copyright (c) 2015-2019, SkyVerge, Inc.
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
