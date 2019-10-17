@@ -5,7 +5,7 @@
  * Description: Displays a shipping estimate for each method on the cart / checkout page
  * Author: SkyVerge
  * Author URI: http://www.skyverge.com/
- * Version: 2.3.0
+ * Version: 2.3.1-dev.1
  * Text Domain: woocommerce-shipping-estimate
  *
  * GitHub Plugin URI: Skyverge/woocommerce-shipping-estimate
@@ -23,7 +23,7 @@
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  *
  * WC requires at least: 3.0.9
- * WC tested up to: 3.7.0
+ * WC tested up to: 3.8.0
  */
 
 defined( 'ABSPATH' ) or exit;
