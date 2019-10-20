@@ -8,9 +8,6 @@
  * Version: 2.3.1-dev.1
  * Text Domain: woocommerce-shipping-estimate
  *
- * GitHub Plugin URI: Skyverge/woocommerce-shipping-estimate
- * GitHub Branch: master
- *
  * Copyright: (c) 2015-2019 SkyVerge, Inc. (info@skyverge.com)
  *
  * License: GNU General Public License v3.0
