@@ -1,5 +1,8 @@
 *** WooCommerce Shipping Estimate Changelog ***
 
+= 2019.nn.nn - version 2.3.1-dev.1 =
+ * Misc - Add support for WooCommerce 3.8
+
 = 2019.08.15 - version 2.3.0 =
  * Tweak - Adjust label for local pickup shipping methods, props [spoyntersmith](https://github.com/spoyntersmith)
  * Localization - Updated German translation, props [uok](https://github.com/uok)
