@@ -8,7 +8,7 @@
  * Version: 2.3.2-dev.1
  * Text Domain: woocommerce-shipping-estimate
  *
- * Copyright: (c) 2015-2019 SkyVerge, Inc. (info@skyverge.com)
+ * Copyright: (c) 2015-2020 SkyVerge, Inc. (info@skyverge.com)
  *
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
