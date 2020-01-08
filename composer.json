@@ -15,10 +15,8 @@
 		}
 	],
 	"require" : {
+		"mnsami/composer-custom-directory-installer": "1.1.*",
 		"skyverge/wc-plugin-updater": "^1.1"
-	},
-	"require-dev": {
-		"mnsami/composer-custom-directory-installer": "1.1.*"
 	},
 	"config": {
 		"vendor-dir": "vendor"

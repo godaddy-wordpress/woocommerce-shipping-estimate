@@ -1,44 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e2e01ab07100b08a58dfbfb687aadc5",
+    "content-hash": "c004181629ad0aba68dc01bef7284cd2",
     "packages": [
-        {
-            "name": "skyverge/wc-plugin-updater",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/skyverge/wc-plugin-updater.git",
-                "reference": "892fd8d95656c10f36dde0fdc62e465fabcd60da"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/skyverge/wc-plugin-updater/zipball/892fd8d95656c10f36dde0fdc62e465fabcd60da",
-                "reference": "892fd8d95656c10f36dde0fdc62e465fabcd60da",
-                "shasum": ""
-            },
-            "type": "library",
-            "license": [
-                "GPL 3.0"
-            ],
-            "authors": [
-                {
-                    "name": "SkyVerge",
-                    "homepage": "https://skyverge.com"
-                }
-            ],
-            "description": "WooCommerce Plugin Updater",
-            "support": {
-                "source": "https://github.com/skyverge/wc-plugin-updater/tree/master",
-                "issues": "https://github.com/skyverge/wc-plugin-updater/issues"
-            },
-            "time": "2018-10-26T00:09:49+00:00"
-        }
-    ],
-    "packages-dev": [
         {
             "name": "mnsami/composer-custom-directory-installer",
             "version": "dev-master",
@@ -90,8 +57,40 @@
                 "composer-plugin"
             ],
             "time": "2017-08-14T19:50:19+00:00"
+        },
+        {
+            "name": "skyverge/wc-plugin-updater",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/skyverge/wc-plugin-updater.git",
+                "reference": "a01b359d9672bdbada7f71c945d159e386990383"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/skyverge/wc-plugin-updater/zipball/a01b359d9672bdbada7f71c945d159e386990383",
+                "reference": "a01b359d9672bdbada7f71c945d159e386990383",
+                "shasum": ""
+            },
+            "type": "library",
+            "license": [
+                "GPL 3.0"
+            ],
+            "authors": [
+                {
+                    "name": "SkyVerge",
+                    "homepage": "https://skyverge.com"
+                }
+            ],
+            "description": "WooCommerce Plugin Updater",
+            "support": {
+                "source": "https://github.com/skyverge/wc-plugin-updater/tree/1.1.1",
+                "issues": "https://github.com/skyverge/wc-plugin-updater/issues"
+            },
+            "time": "2018-12-14T07:09:23+00:00"
         }
     ],
+    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": [],

@@ -5,10 +5,10 @@
  * Description: Displays a shipping estimate for each method on the cart / checkout page
  * Author: SkyVerge
  * Author URI: http://www.skyverge.com/
- * Version: 2.3.1
+ * Version: 2.3.2-dev.1
  * Text Domain: woocommerce-shipping-estimate
  *
- * Copyright: (c) 2015-2019 SkyVerge, Inc. (info@skyverge.com)
+ * Copyright: (c) 2015-2020 SkyVerge, Inc. (info@skyverge.com)
  *
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -16,7 +16,7 @@
  * @package   WC-Shipping-Estimate
  * @author    SkyVerge
  * @category  Admin
- * @copyright Copyright (c) 2015-2019, SkyVerge, Inc.
+ * @copyright Copyright (c) 2015-2020, SkyVerge, Inc. (info@skyverge.com)
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  *
  * WC requires at least: 3.0.9

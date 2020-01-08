@@ -17,7 +17,7 @@
  * needs please refer to http://skyverge.com/products/woocommerce-shipping-estimate/ for more information.
  *
  * @author    SkyVerge
- * @copyright Copyright (c) 2015-2019, SkyVerge, Inc.
+ * @copyright Copyright (c) 2015-2020, SkyVerge, Inc. (info@skyverge.com)
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
@@ -35,7 +35,7 @@ defined( 'ABSPATH' ) or exit;
 class Plugin {
 
 
-	const VERSION = '2.3.1';
+	const VERSION = '2.3.2-dev.1';
 
 	/** @var Plugin single instance of this plugin */
 	protected static $instance;
