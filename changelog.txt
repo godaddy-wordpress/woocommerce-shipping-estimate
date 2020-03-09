@@ -1,6 +1,7 @@
 *** WooCommerce Shipping Estimate Changelog ***
 
 = 2020.nn.nn - version 2.3.3-dev.1 =
+ * Misc - Add support for WooCommerce 4.0
 
 = 2020.01.08 - version 2.3.2 =
  * Misc - Add support for WooCommerce 3.9
