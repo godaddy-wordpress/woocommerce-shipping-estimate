@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Shipping Estimates 2.3.2\n"
+"Project-Id-Version: WooCommerce Shipping Estimates 2.3.3\n"
 "Report-Msgid-Bugs-To: "
 "https://woocommerce.com/my-account/marketplace-ticket-form/\n"
-"POT-Creation-Date: 2020-01-08 23:47:31+00:00\n"
+"POT-Creation-Date: 2020-03-10 22:04:20+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,469 +13,175 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:173
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:184
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:173
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:184
 #: class-wc-shipping-estimate.php:173 class-wc-shipping-estimate.php:184
 #. translators: %1$s (number) is maximum shipping estimate, %2$s is label
 #. (day(s))
 msgid "Collection estimate: up to %1$s %2$s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:173
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:184
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:173
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:184
 #: class-wc-shipping-estimate.php:173 class-wc-shipping-estimate.php:184
 msgid "Delivery estimate: up to %1$s %2$s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:178
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:178
 #: class-wc-shipping-estimate.php:178
 #. translators: %1$s (number) is minimum shipping estimate, %2$s (number) is
 #. maximum shipping estimate, %$3s is label (day(s))
 msgid "Collection estimate: %1$s - %2$s %3$s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:178
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:178
 #: class-wc-shipping-estimate.php:178
 msgid "Delivery estimate: %1$s - %2$s %3$s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:192
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:192
 #: class-wc-shipping-estimate.php:192
 #. translators: %1$s (number) is minimum shipping estimate, %2$s is label
 #. (day(s))
 msgid "Collection estimate: at least %1$s %2$s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:192
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:192
 #: class-wc-shipping-estimate.php:192
 msgid "Delivery estimate: at least %1$s %2$s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:226
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:237
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:226
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:237
 #: class-wc-shipping-estimate.php:226 class-wc-shipping-estimate.php:237
 #. translators: %s (date) is latest shipping estimate
 msgid "Estimated collection by %s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:226
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:237
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:226
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:237
 #: class-wc-shipping-estimate.php:226 class-wc-shipping-estimate.php:237
 msgid "Estimated delivery by %s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:231
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:231
 #: class-wc-shipping-estimate.php:231
 #. translators: %1$s (date) is earliest shipping estimate, %2$s (date) is
 #. latest shipping estimate
 msgid "Estimated collection: %1$s - %2$s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:231
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:231
 #: class-wc-shipping-estimate.php:231
 msgid "Estimated delivery: %1$s - %2$s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:242
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:242
 #: class-wc-shipping-estimate.php:242
 #. translators: %s (date) is earliest shipping estimate
 msgid "Collection on or after %s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:242
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:242
 #: class-wc-shipping-estimate.php:242
 msgid "Delivery on or after %s"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:259
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:259
 #: class-wc-shipping-estimate.php:259
 msgid "day"
 msgid_plural "days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:276
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:276
 #: class-wc-shipping-estimate.php:276
 msgid "Shipping Estimates"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:283
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:283
 #: class-wc-shipping-estimate.php:283
 msgid "Shipping Estimate Format"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:285
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:285
 #: class-wc-shipping-estimate.php:285
 msgid "Display estimate in days"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:286
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:286
 #: class-wc-shipping-estimate.php:286
 msgid "Display estimate using dates"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:289
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:289
 #: class-wc-shipping-estimate.php:289
 msgid "This changes the way estimates are shown to customers."
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:317
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:317
 #: class-wc-shipping-estimate.php:317
 msgid "Estimate Ranges"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:332
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:372
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:332
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:372
 #: class-wc-shipping-estimate.php:332 class-wc-shipping-estimate.php:372
 msgid "Methods"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:336
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:376
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:411
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:336
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:376
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:411
 #: class-wc-shipping-estimate.php:336 class-wc-shipping-estimate.php:376
 #: class-wc-shipping-estimate.php:411
 msgid "Name"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:337
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:377
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:337
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:377
 #: class-wc-shipping-estimate.php:337 class-wc-shipping-estimate.php:377
 msgid "Type"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:338
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:378
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:413
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:338
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:378
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:413
 #: class-wc-shipping-estimate.php:338 class-wc-shipping-estimate.php:378
 #: class-wc-shipping-estimate.php:413
 msgid "From (days)"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:338
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:378
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:413
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:338
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:378
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:413
 #: class-wc-shipping-estimate.php:338 class-wc-shipping-estimate.php:378
 #: class-wc-shipping-estimate.php:413
 msgid "The earliest estimated arrival. Can be left blank."
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:339
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:379
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:414
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:339
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:379
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:414
 #: class-wc-shipping-estimate.php:339 class-wc-shipping-estimate.php:379
 #: class-wc-shipping-estimate.php:414
 msgid "To (days)"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:339
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:379
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:414
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:339
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:379
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:414
 #: class-wc-shipping-estimate.php:339 class-wc-shipping-estimate.php:379
 #: class-wc-shipping-estimate.php:414
 msgid "The latest estimated arrival. Can be left blank."
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:370
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:370
 #: class-wc-shipping-estimate.php:370
 msgid "Rest of the World"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:408
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:408
 #: class-wc-shipping-estimate.php:408
 msgid "Other Methods"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:412
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:412
 #: class-wc-shipping-estimate.php:412
 msgid "ID"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:440
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:440
 #: class-wc-shipping-estimate.php:440
 msgid "Set the estimated range of days required for each method."
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:525
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:525
 #: class-wc-shipping-estimate.php:525
 #. translators: Placeholders: %s - plugin name
 msgid "You cannot clone instances of %s."
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:536
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:536
 #: class-wc-shipping-estimate.php:536
 #. translators: Placeholders: %s - plugin name
 msgid "You cannot unserialize instances of %s."
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:562
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:562
 #: class-wc-shipping-estimate.php:562
 msgid "License"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:562
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:562
 #: class-wc-shipping-estimate.php:562
 msgid "Get updates"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:565
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:565
 #: class-wc-shipping-estimate.php:565
 msgid "Configure"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:585
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:585
 #: class-wc-shipping-estimate.php:585
 msgid "Report bugs on GitHub"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:585
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:585
 #: class-wc-shipping-estimate.php:585
 msgid "Report bug"
 msgstr ""
 
-#: build/woocommerce-shipping-estimate 2/class-wc-shipping-estimate.php:611
-#: build/woocommerce-shipping-estimate 3/class-wc-shipping-estimate.php:611
 #: class-wc-shipping-estimate.php:611
 msgid "WooCommerce Shipping Estimate"
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:73
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license.php:445
-msgid "WooCommerce"
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:109
-msgid "There are no active SkyVerge plugins that require license keys."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:110
-msgid "View Plugins"
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:116
-msgid "SkyVerge Plugin License Keys"
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:117
-msgid "Enter your plugin license keys here to receive automatic updates."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:160
-msgid "Increase sales by 15% in 10 minutes or less!"
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:161
-msgid "Jilt helps you increase sales using powerful automated emails."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:165
-msgid "Get Jilt"
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:258
-msgid "Your license key expired on %1$s. Please %2$srenew your license key%3$s."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:269
-msgid ""
-"Your license key has been disabled. Please %1$scontact support%2$s for more "
-"information."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:279
-msgid "Invalid license. Please %1$svisit your account page%2$s and verify it."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:290
-msgid ""
-"Your %1$s is not active for this URL. Please %2$svisit your account "
-"page%3$s to manage your license key URLs."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:300
-msgid "This appears to be an invalid license key for %s."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:306
-msgid ""
-"Your license key has reached its activation limit. %1$sView possible "
-"upgrades%2$s now."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:312
-msgid ""
-"The key you entered belongs to a bundle, please use the product specific "
-"license key."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:318
-msgid "unknown_error"
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:319
-msgid ""
-"There was an error with this license key: %1%s. Please %2$scontact our "
-"support team%3$s."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:336
-msgid "License key never expires."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:342
-msgid ""
-"Your license key expires soon! It expires on %1$s. %2$sRenew your license "
-"key%3$s."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:352
-msgid "Your license key expires on %s."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:364
-msgid "To receive updates, please enter your valid %s license key."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:374
-msgid "Deactivate License"
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:401
-msgid "SkyVerge Licenses"
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license-settings.php:472
-msgid "Settings updated."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license.php:205
-msgid "Once per week"
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license.php:238
-msgid "%1$s"
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license.php:341
-msgid "Nonce verification failed"
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license.php:341
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-updater.php:501
-msgid "Error"
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license.php:463
-#. translators: Placeholder: %1$s - <a>, %2$s - </a>
-msgid ""
-"You have invalid or expired license keys for SkyVerge Plugins. Please go to "
-"the %1$sLicenses page%2$s to correct this issue."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-license.php:494
-msgid "Enter valid license key for automatic updates."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-updater.php:248
-msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-updater.php:258
-msgid ""
-"There is a new version of %1$s available. %2$sView version %3$s details%4$s "
-"or %5$supdate now%6$s."
-msgstr ""
-
-#: build/woocommerce-shipping-estimate
-#: 2/lib/skyverge/updater/class-skyverge-plugin-updater.php:501
-msgid "You do not have permission to install plugin updates"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
