@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c004181629ad0aba68dc01bef7284cd2",
+    "content-hash": "c90c25d7a77b29e13458e7a0df8be699",
     "packages": [
         {
             "name": "mnsami/composer-custom-directory-installer",
@@ -59,6 +59,28 @@
             "time": "2017-08-14T19:50:19+00:00"
         },
         {
+            "name": "skyverge/wc-jilt-promotions",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:skyverge/wc-jilt-promotions.git",
+                "reference": "e9c8fdede446e33d6b4469d2c25d3d6817489b0b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/skyverge/wc-jilt-promotions/zipball/e9c8fdede446e33d6b4469d2c25d3d6817489b0b",
+                "reference": "e9c8fdede446e33d6b4469d2c25d3d6817489b0b",
+                "shasum": ""
+            },
+            "type": "library",
+            "description": "Callouts to promote Jilt in WooCommerce",
+            "support": {
+                "source": "https://github.com/skyverge/wc-jilt-promotions/tree/master",
+                "issues": "https://github.com/skyverge/wc-jilt-promotions/issues"
+            },
+            "time": "2020-05-04T23:03:09+00:00"
+        },
+        {
             "name": "skyverge/wc-plugin-updater",
             "version": "1.1.1",
             "source": {
@@ -97,5 +119,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

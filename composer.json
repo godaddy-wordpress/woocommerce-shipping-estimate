@@ -1,29 +1,36 @@
 {
-	"name": "skyverge/woocommerce-shipping-estimate",
-	"type": "project",
-	"authors": [
-		{
-			"name": "SkyVerge",
-			"email": "info@skyverge.com"
-		}
-	],
-	"minimum-stability": "dev",
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/skyverge/wc-plugin-updater"
-		}
-	],
-	"require" : {
-		"mnsami/composer-custom-directory-installer": "1.1.*",
-		"skyverge/wc-plugin-updater": "^1.1"
-	},
-	"config": {
-		"vendor-dir": "vendor"
-	},
-	"extra": {
-		"installer-paths": {
-			"lib/skyverge/updater": ["skyverge/wc-plugin-updater"]
-		}
-	}
+  "name": "skyverge/woocommerce-shipping-estimate",
+  "type": "project",
+  "authors": [
+    {
+      "name": "SkyVerge",
+      "email": "info@skyverge.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/skyverge/wc-plugin-updater"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/skyverge/wc-jilt-promotions"
+    }
+  ],
+  "require": {
+    "mnsami/composer-custom-directory-installer": "1.1.*",
+    "skyverge/wc-plugin-updater": "^1.1",
+    "skyverge/wc-jilt-promotions": "1.0.*"
+  },
+  "config": {
+    "vendor-dir": "vendor"
+  },
+  "extra": {
+    "installer-paths": {
+      "lib/skyverge/updater": [
+        "skyverge/wc-plugin-updater"
+      ]
+    }
+  }
 }
