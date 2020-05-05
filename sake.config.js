@@ -1,5 +1,4 @@
 module.exports = {
-	clubhouse: 14029,
 	deploy: {
 		type: 'local'
 	},
@@ -8,7 +7,7 @@ module.exports = {
 	paths: {
 		src: '.',
 		exclude: [
-			'vendor',
+			'vendor/mnsami',
 			'build'
 		]
 	}
