@@ -1,5 +1,9 @@
 *** WooCommerce Shipping Estimate Changelog ***
 
+= 2020.nn.nn - version 2.3.5-dev.1 =
+ * Fix - Address a potential PHP error while updating WooCommerce
+ * Misc - Add support for WooCommerce 4.3
+
 = 2020.05.05 - version 2.3.4 =
  * Misc - Add support for WooCommerce 4.1
 
