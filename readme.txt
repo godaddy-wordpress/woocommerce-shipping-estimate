@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@s
 Requires at least: 4.4
 Tested up to: 5.4.1
 Requires PHP: 5.6
-Stable Tag: 2.3.3
+Stable Tag: 2.3.5-dev.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
