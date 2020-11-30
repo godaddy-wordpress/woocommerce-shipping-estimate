@@ -19,7 +19,7 @@
  * @copyright Copyright (c) 2015-2020, SkyVerge, Inc. (info@skyverge.com)
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  *
- * WC requires at least: 3.0.9
+ * WC requires at least: 3.5
  * WC tested up to: 4.3.1
  */
 
@@ -40,7 +40,7 @@ class WC_Shipping_Estimate_Loader {
 	const MINIMUM_WP_VERSION = '4.4';
 
 	/** minimum WooCommerce version required by this plugin */
-	const MINIMUM_WC_VERSION = '3.0.9';
+	const MINIMUM_WC_VERSION = '3.5';
 
 	/** the plugin name, for displaying notices */
 	const PLUGIN_NAME = 'WooCommerce Shipping Estimate';
