@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c90c25d7a77b29e13458e7a0df8be699",
+    "content-hash": "c004181629ad0aba68dc01bef7284cd2",
     "packages": [
         {
             "name": "mnsami/composer-custom-directory-installer",
@@ -12,16 +12,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mnsami/composer-custom-directory-installer.git",
-                "reference": "a4f6eec8a2d15be977561f22f4457e805d98108d"
+                "reference": "85f66323978d0b1cb0e6acc7f69b3e7b912f82d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mnsami/composer-custom-directory-installer/zipball/a4f6eec8a2d15be977561f22f4457e805d98108d",
-                "reference": "a4f6eec8a2d15be977561f22f4457e805d98108d",
+                "url": "https://api.github.com/repos/mnsami/composer-custom-directory-installer/zipball/85f66323978d0b1cb0e6acc7f69b3e7b912f82d9",
+                "reference": "85f66323978d0b1cb0e6acc7f69b3e7b912f82d9",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0",
+                "composer-plugin-api": "^1.0 || ^2.0",
                 "php": ">=5.3"
             },
             "type": "composer-plugin",
@@ -56,42 +56,20 @@
                 "composer-installer",
                 "composer-plugin"
             ],
-            "time": "2020-06-12T10:15:35+00:00"
-        },
-        {
-            "name": "skyverge/wc-jilt-promotions",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/skyverge/wc-jilt-promotions.git",
-                "reference": "8900ebd4e1ab5106d9a4aaa95902682d660bb842"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/skyverge/wc-jilt-promotions/zipball/8900ebd4e1ab5106d9a4aaa95902682d660bb842",
-                "reference": "8900ebd4e1ab5106d9a4aaa95902682d660bb842",
-                "shasum": ""
-            },
-            "type": "library",
-            "description": "Callouts to promote Jilt in WooCommerce",
-            "support": {
-                "source": "https://github.com/skyverge/wc-jilt-promotions/tree/1.0.2",
-                "issues": "https://github.com/skyverge/wc-jilt-promotions/issues"
-            },
-            "time": "2020-07-09T19:01:46+00:00"
+            "time": "2020-08-18T11:00:11+00:00"
         },
         {
             "name": "skyverge/wc-plugin-updater",
-            "version": "1.1.1",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/skyverge/wc-plugin-updater.git",
-                "reference": "a01b359d9672bdbada7f71c945d159e386990383"
+                "reference": "81348332baf8cf52b3ffa4fe9031fbfa6bfa1123"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/skyverge/wc-plugin-updater/zipball/a01b359d9672bdbada7f71c945d159e386990383",
-                "reference": "a01b359d9672bdbada7f71c945d159e386990383",
+                "url": "https://api.github.com/repos/skyverge/wc-plugin-updater/zipball/81348332baf8cf52b3ffa4fe9031fbfa6bfa1123",
+                "reference": "81348332baf8cf52b3ffa4fe9031fbfa6bfa1123",
                 "shasum": ""
             },
             "type": "library",
@@ -106,10 +84,10 @@
             ],
             "description": "WooCommerce Plugin Updater",
             "support": {
-                "source": "https://github.com/skyverge/wc-plugin-updater/tree/1.1.1",
+                "source": "https://github.com/skyverge/wc-plugin-updater/tree/1.1.3",
                 "issues": "https://github.com/skyverge/wc-plugin-updater/issues"
             },
-            "time": "2018-12-14T07:09:23+00:00"
+            "time": "2020-11-19T02:12:41+00:00"
         }
     ],
     "packages-dev": [],

@@ -69,8 +69,6 @@ class WC_Shipping_Estimate_Loader {
 		// if the environment check passes, initialize the plugin
 		if ( $this->is_environment_compatible() ) {
 
-			require_once( 'vendor/skyverge/wc-jilt-promotions/load.php' );
-
 			add_action( 'plugins_loaded', array( $this, 'init_plugin' ) );
 		}
 	}
