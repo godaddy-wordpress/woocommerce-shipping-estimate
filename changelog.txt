@@ -1,6 +1,6 @@
 *** WooCommerce Shipping Estimate Changelog ***
 
-= 2020.nn.nn - version 2.4.0-dev.1 =
+= 2020.12.10 - version 2.4.0 =
  * Misc - Add compatibility for WooCommerce 4.7
  * Misc - Require PHP 7.0 or newer
 
