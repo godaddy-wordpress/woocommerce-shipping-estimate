@@ -2,10 +2,10 @@
 Contributors: skyverge, beka.rice
 Tags: woocommerce, shipping, shipping time, shipping estimate, woocommerce shipping
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@skyverge.com&item_name=Donation+for+WooCommerce+Shipping+Estimates
-Requires at least: 4.4
+Requires at least: 5.2
 Tested up to: 5.4.2
-Requires PHP: 5.6
-Stable Tag: 2.3.5
+Requires PHP: 7.0
+Stable Tag: 2.4.0-dev.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
