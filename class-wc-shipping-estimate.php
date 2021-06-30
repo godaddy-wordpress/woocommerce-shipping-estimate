@@ -35,7 +35,7 @@ defined( 'ABSPATH' ) or exit;
 class Plugin {
 
 
-	const VERSION = '2.4.1-dev.1';
+	const VERSION = '2.4.1';
 
 	/** @var Plugin single instance of this plugin */
 	protected static $instance;
