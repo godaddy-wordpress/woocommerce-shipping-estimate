@@ -328,8 +328,8 @@ class Plugin {
 					<thead>
 						<tr style="background: #e9e9e9;">
 							<th colspan="4" style="text-align: center; border: 1px solid #e1e1e1;">
-								<?php echo sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'admin.php?page=wc-settings&tab=shipping&zone_id=' . $zone->get_id() ) ), $zone->get_zone_name() ); ?>
-								<?php esc_html_e( 'Methods', 'woocommerce-shipping-estimate' ); ?>
+							<?php /* translators: 1. URL, 2. zone name */ ?>
+								<?php echo sprintf( __( 'Shipping Methods for <a href="%1$s">%2$s</a>', 'woocommerce-shipping-estimate' ), esc_url( admin_url( 'admin.php?page=wc-settings&tab=shipping&zone_id=' . $zone->get_id() ) ), $zone->get_zone_name() ); ?>
 							</th>
 						</tr>
 						<tr>
@@ -367,9 +367,9 @@ class Plugin {
 					<thead>
 						<tr style="background: #e9e9e9;">
 							<th colspan="4" style="text-align: center; border: 1px solid #e1e1e1;">
-								<?php $zone_name = __( 'Rest of the World', 'woocommerce-shipping-estimate' ); ?>
-								<?php echo sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'admin.php?page=wc-settings&tab=shipping&zone_id=0' ) ), $zone_name ); ?>
-								<?php esc_html_e( 'Methods', 'woocommerce-shipping-estimate' ); ?>
+								<?php $zone_name = __( 'Rest of the world', 'woocommerce-shipping-estimate' ); ?>
+								<?php /* translators: 1. URL, 2. zone name */ ?>
+								<?php echo sprintf( __( 'Shipping Methods for <a href="%1$s">%2$s</a>', 'woocommerce-shipping-estimate' ), esc_url( admin_url( 'admin.php?page=wc-settings&tab=shipping&zone_id=0' ) ), $zone_name ); ?>
 							</th>
 						</tr>
 						<tr>
