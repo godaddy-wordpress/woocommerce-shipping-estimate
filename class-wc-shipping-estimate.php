@@ -328,7 +328,7 @@ class Plugin {
 					<thead>
 						<tr style="background: #e9e9e9;">
 							<th colspan="4" style="text-align: center; border: 1px solid #e1e1e1;">
-							<?php /* translators: 1. URL, 2. zone name */ ?>
+								<?php /* translators: 1. URL, 2. zone name */ ?>
 								<?php echo sprintf( __( 'Shipping Methods for <a href="%1$s">%2$s</a>', 'woocommerce-shipping-estimate' ), esc_url( admin_url( 'admin.php?page=wc-settings&tab=shipping&zone_id=' . $zone->get_id() ) ), $zone->get_zone_name() ); ?>
 							</th>
 						</tr>
